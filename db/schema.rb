@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_055101) do
+ActiveRecord::Schema.define(version: 2020_05_07_084607) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_05_07_055101) do
     t.string "name", null: false
     t.string "quantity", null: false
     t.datetime "purchase_date", null: false
-    t.datetime "exripy_date", null: false
+    t.datetime "expiry_date", null: false
     t.boolean "wish_list", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

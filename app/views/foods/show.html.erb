@@ -1,0 +1,36 @@
+<div class="container">
+	<div class="row">
+		<h4>食材詳細</h4>
+		<table class="table">
+			<tr>
+				<td class="col-xs-3">カテゴリー</td>
+				<td class="col-xs-3"><%= @food.category.name %></td>
+			</tr>
+			<tr>
+				<td>食材名</td>
+				<td><%= @food.name %></td>
+			</tr>
+			<tr>
+				<td>数量</td>
+				<td><%= @food.quantity %></td>
+			</tr>
+			<tr>
+				<td>購入日</td>
+				<td><%= @food.purchase_date.strftime("%Y/%m/%d") %></td>
+			</tr>
+			<tr>
+				<td>賞味期限</td>
+				<td><%= @food.expiry_date.strftime("%Y/%m/%d") %></td>
+			</tr>
+		</table>
+		<% if @food.wish_list == false %>
+			<button class="btn btn-primary">ほしい</button>
+		<% else %>
+			<button class="btn btn-default">いらない</button>
+		<% end %>
+
+		<%= link_to '編集', edit_food_path(@food) %>
+		<%= link_to '一覧へ', foods_path %>
+		<%= link_to '使い切った', @food, method: :delete, "data-confirm" => "使い切った食材は食材の一覧から削除されます。削除してもよろしいですか？" %>
+	</div>
+</div>
