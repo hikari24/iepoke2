@@ -16,8 +16,14 @@ class FoodsController < ApplicationController
 	end
 
 	def index
+		if params[:category_id]
+		@one_foods = Food.where(category_id: params[:category_id])
+		@foods = @one_foods.all
+
+		else
 		@user = current_user.id
 		@foods = Food.where(user_id: current_user.id)
+		end
 	end
 
 	def edit
