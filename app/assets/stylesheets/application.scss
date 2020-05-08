@@ -1,0 +1,171 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+header {
+	max-width: 500px;
+	heigth: 150px;
+	background-color: #ef857d;
+	margin: 0 auto;
+	padding:10px;
+}
+
+#nav-drawer {
+  position: relative;
+  top: 5px;
+}
+
+/*チェックボックス等は非表示に*/
+.nav-unshown {
+  display:none;
+}
+
+/*アイコンのスペース*/
+#nav-open {
+  display: inline-block;
+  width: 30px;
+  height: 20px;
+}
+
+/*ハンバーガーの形をCSSで表現*/
+#nav-open span, #nav-open span:before, #nav-open span:after {
+  position: absolute;
+  height: 3px;/*線の太さ*/
+  width: 25px;/*長さ*/
+  border-radius: 3px;
+  background: #555;
+  display: block;
+  content: '';
+  cursor: pointer;
+}
+#nav-open span:before {
+  bottom: -8px;
+}
+#nav-open span:after {
+  bottom: -16px;
+}
+
+/*閉じる用の薄黒箇所*/
+#nav-close {
+  display: none;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  transition: .3s ease-in-out;
+}
+
+/*メニューの中身*/
+#nav-content {
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999; //要素の重なり,手前に表示
+  width: 60%;
+  max-width: 330px;
+  height: 100%;
+  background: #fff;
+  transition: .3s ease-in-out; //ゆっくりイン、アウト
+  transform: translateX(-120%); //左側に隠しておく
+}
+
+/*チェックがついたら表示させる*/
+#nav-input:checked ~ #nav-close {
+  display: block;
+  opacity: 0.5;
+}
+
+#nav-input:checked ~ #nav-content {
+  transform: translateX(0%);
+}
+
+.header-logo-menu{
+ display: flex;
+ display: -moz-flex;
+ display: -o-flex;
+ display: -webkit-flex;
+ display: -ms-flex;
+ flex-direction: row;
+ -moz-flex-direction: row;
+ -o-flex-direction: row;
+ -webkit-flex-direction: row;
+ -ms-flex-direction: row;
+}
+
+.logo-area {
+margin: 0 auto;
+text-align: center;
+}
+
+li {
+	list-style: none;
+	padding: 20px;
+}
+
+.container {
+	max-width: 500px;
+	margin: 0 auto;
+	padding: 20px 20px;
+	background-color: #f5ecf4;
+}
+
+.user-signup,
+.user_signin {
+	margin-top: 20px;
+}
+
+.btn-danger {
+	background: #ff6347;
+	border: 1px solid #ff6347; //アウトラインのみのボタンの線の色
+}
+
+.main-visual {
+	width: 100%;
+	height: 300px;
+	background-image: url(top.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+.signup-signin {
+	width: 100%;
+	height: 80px;
+	padding: 20px 0;
+}
+
+.three-button {
+	width: 100%;
+	height: 300px;
+	background-color: blue;
+}
+
+footer {
+	max-width: 500px;
+	height: 50px;
+	background: #ef857d;
+	margin: 0 auto;
+}
+
+.footer {
+	text-align: center;
+	line-height: 50px;
+}
