@@ -18,7 +18,23 @@
         </div>
 
         <div class="three-button">
+        	<div class="new-button row">
+        		<%= link_to new_food_path do %>
+        		<button class="btn btn-default col-xs-offset-3 col-xs-6"><i class="fas fa-plus"></i>    食材を登録する</button>
+	        	<% end %>
+    	    </div>
 
+    	    <div class="index-button row">
+	        	<%= link_to foods_path do %>
+    	    	<button class="btn btn-default col-xs-offset-3 col-xs-6"><i class="fas fa-carrot"></i>    食材を確認する</button>
+        		<% end %>
+        	</div>
+
+        	<div class="wish_list-button row">
+	        	<%= link_to foods_path do %>
+    	    	<button class="btn btn-default col-xs-offset-3 col-xs-6"><i class="fas fa-star"></i>  ほしいものリスト</button>
+        		<% end %>
+        	</div>
 
         </div>
 

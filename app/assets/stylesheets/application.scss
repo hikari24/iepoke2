@@ -20,7 +20,7 @@
 header {
 	max-width: 500px;
 	heigth: 150px;
-	background-color: #ef857d;
+	background-color: #fff;
 	margin: 0 auto;
 	padding:10px;
 }
@@ -112,8 +112,11 @@ header {
 }
 
 .logo-area {
-margin: 0 auto;
-text-align: center;
+width: 90px;
+height: 50px;
+margin-left: 190%;
+background-image: url(logo2.png);
+background-size: 90px 50px ;
 }
 
 li {
@@ -154,8 +157,14 @@ li {
 
 .three-button {
 	width: 100%;
-	height: 300px;
-	background-color: blue;
+	height: 200px;
+  padding-top:20px;
+	background-color: #fff;
+}
+
+.new-button,
+.index-button {
+  margin-bottom: 20px;
 }
 
 footer {

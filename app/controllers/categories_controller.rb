@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
 	def create
 	end
 
-	def index 
+	def index
 	end
 
 	def edit
