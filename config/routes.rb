@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   registrations: 'users/registrations'
 }
 
+#会員側
 root to: 'home#top'
 get "/about" => "home#about"
 
@@ -19,6 +20,7 @@ resources :foods
 resources :categories, only: [:new, :create, :index, :edit, :update, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+#管理者側
 namespace :admins do
 	root to: "home#top"
 	resources :users, only: [:index, :show, :edit, :update]
