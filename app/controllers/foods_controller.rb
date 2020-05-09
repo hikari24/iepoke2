@@ -32,7 +32,9 @@ class FoodsController < ApplicationController
 
     def update
     	@food = Food.find(params[:id])
-    	@food.update
+
+    	#@food.user_id = current_user.id
+    	@food.update(food_params)
     	redirect_to food_path(@food)
     end
 
