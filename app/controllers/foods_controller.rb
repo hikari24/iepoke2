@@ -42,6 +42,9 @@ class FoodsController < ApplicationController
 		redirect_to foods_path
 	end
 
+	def wish_list
+	end
+
 	private
 	def food_params
 		params.require(:food).permit(:user_id, :category_id, :name, :quantity, :purchase_date, :expiry_date, :wish_list)

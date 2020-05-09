@@ -6,8 +6,11 @@
 
 			<div class="form-group">
 				<%= f.label :カテゴリー, class: "col-xs-4" %>
-				<%= f.collection_select :category_id, Category.where(user_id: current_user.id), :id, :name, {prompt: "選択してください"}, {class: "form-control", style: "display: inline-block; width: auto;"} %>
+				<%= f.collection_select :category_id, Category.where(user_id: current_user.id), :id, :name, {prompt: "選択してください"}, {class: "form-control", style: "display: inline-block; width: auto;"} %><br>
+				<%= link_to '追加', categories_path %>
+				<button class="btn btn-default col-xs-offset-1">追加する</button>
 			</div>
+
 			<div class="form-group">
 				<%= f.label :食材名, class: "col-xs-4" %>
 				<%= f.text_field :name, class: "form-control", style: "display: inline-block; width: auto;"  %>
