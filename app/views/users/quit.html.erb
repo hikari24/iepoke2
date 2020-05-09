@@ -1,12 +1,14 @@
 <div class="container">
 	<div class="row">
-		<h4><i class="fas fa-exclamation-circle"></i>  退会手続きの前にご確認ください</h4>
+		<h4 class="text-quit"><i class="fas fa-exclamation-circle"></i>  退会手続きの前にご確認ください</h4>
 
-		<p>退会手続きをされた場合、会員情報や<br>
+		<p class="text-quit">退会手続きをされた場合、会員情報や<br>
 		保存されている内容が閲覧できなくなります。</p>
 
-		<%= link_to '退会する', users_hide_path(current_user), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
-		<%= link_to '退会しない', users_path, class: "btn btn-primary" %>
+		<div class="btn-quit">
+			<%= link_to '退会する', users_hide_path(current_user), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
+			<%= link_to '退会しない', users_path, class: "btn btn-primary" %>
+		</div>
 
 	</div>
 </div>
