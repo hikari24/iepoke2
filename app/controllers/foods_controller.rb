@@ -16,8 +16,14 @@ class FoodsController < ApplicationController
 	end
 
 	def index
+		if params[:category_id]
+		@one_foods = Food.where(category_id: params[:category_id])
+		@foods = @one_foods.all
+
+		else
 		@user = current_user.id
 		@foods = Food.where(user_id: current_user.id)
+		end
 	end
 
 	def edit
@@ -26,7 +32,9 @@ class FoodsController < ApplicationController
 
     def update
     	@food = Food.find(params[:id])
-    	@food.update
+
+    	#@food.user_id = current_user.id
+    	@food.update(food_params)
     	redirect_to food_path(@food)
     end
 
@@ -34,6 +42,9 @@ class FoodsController < ApplicationController
 		@food = Food.find(params[:id])
 		@food.destroy
 		redirect_to foods_path
+	end
+
+	def wish_list
 	end
 
 	private
