@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="row">
+		<h4>マイページ</h4>
+
+		<table class="table">
+			<tr>
+				<th>ニックネーム</th>
+				<td><%= @user.name %></td>
+			</tr>
+			<tr>
+				<th>メールアドレス</th>
+				<td><%= @user.email %></td>
+			</tr>
+		</table>
+
+		<%= link_to "登録内容の変更", edit_user_registration_path, class: "btn btn-primary", style: "display: inline-block;vertical-align: middle;margin-left:10px;" %>
+
+		<%#= link_to "パスワードを変更する", users_password_path, class: "btn btn-primary", style: "display: inline-block;vertical-align: middle;margin-left:10px;" %>
+
+		<%= link_to users_quit_path do %>
+          <button class="btn btn-danger">退会する</button>
+        <% end %>
+
+	</div>
+</div>
