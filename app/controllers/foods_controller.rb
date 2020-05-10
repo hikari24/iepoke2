@@ -31,10 +31,7 @@ class FoodsController < ApplicationController
 		@q = Food.ransack(params[:q])
   		@search_foods = @q.result
   		@foods = @search_foods.where(user_id: current_user.id)
-
-  		@categories = Category.where(user_id: current_user.id)
 		else
-		@user = current_user
 		@foods = Food.where(user_id: current_user.id)
 		end
 	end
@@ -65,4 +62,10 @@ class FoodsController < ApplicationController
 	def food_params
 		params.require(:food).permit(:user_id, :category_id, :name, :quantity, :purchase_date, :expiry_date, :wish_list)
 	end
+
+
+	# def search_params
+ #    params.require(:q).permit(:sorts, :category_id)
+ #    # 他のパラメーターもここに入れる
+ #  	end
 end
