@@ -21,7 +21,7 @@
           <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control", style: "display: inline-block; width: auto;" %>
         </div>
 
-        <div class="message">
+        <div class="user-edit-message">
           <p>パスワードも変更をご希望の場合は下記項目を入力してください。<br>
         変更しない場合は、空欄のまま更新を押してください。</p>
         </div>
@@ -41,7 +41,9 @@
         </div>
       <% end %>
 
-      <%= link_to "Back", users_path %>
+      <div class="back-link">
+      <%= link_to "マイページへ戻る", users_path %>
+     </div>
 
   </div>
 </div>
