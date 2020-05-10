@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 }
   devise_for :users, controllers: {
   sessions:      'users/sessions',
-  passwords:     'users/passwords',
   registrations: 'users/registrations'
 }
 
@@ -13,7 +12,8 @@ root to: 'home#top'
 get "/about" => "home#about"
 
 resource :users, only: [:show, :edit, :update]
- get "/users/quit" => "uers#quit"
+ get "/users/password" => "users#edit"
+ get "/users/quit" => "users#quit"
  put "/users/hide" => "users#hide"
  get "/users/thank" => "users#thank"
 resources :foods

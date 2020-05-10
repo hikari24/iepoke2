@@ -113,13 +113,13 @@ header {
 
 .logo-area {
 width: 90px;
-height: 50px;
+height: 55px;
 margin-left: 190%;
-background-image: url(logo2.png);
-background-size: 90px 50px ;
+background-image: url(logo3.png);
+background-size: 90px 55px ;
 }
 
-li {
+li { //ハンバーガーメニューの中身
 	list-style: none;
 	padding: 20px;
 }
@@ -131,40 +131,16 @@ li {
 	background-color: #f5ecf4;
 }
 
-.user-signup,
-.user_signin {
-	margin-top: 20px;
-}
 
 .btn-danger {
 	background: #ff6347;
 	border: 1px solid #ff6347; //アウトラインのみのボタンの線の色
 }
 
-.main-visual {
-	width: 100%;
-	height: 300px;
-	background-image: url(top.jpg);
-	background-size: cover;
-	background-position: center;
-}
 
-.signup-signin {
-	width: 100%;
-	height: 80px;
-	padding: 20px 0;
-}
-
-.three-button {
-	width: 100%;
-	height: 200px;
-  padding-top:20px;
-	background-color: #fff;
-}
-
-.new-button,
-.index-button {
-  margin-bottom: 20px;
+.user-signup,
+.user_signin {
+  margin-top: 20px;
 }
 
 footer {
