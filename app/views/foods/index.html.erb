@@ -15,14 +15,13 @@
 				<%= f.label :並べ替え, class: "col-xs-3" %>
 				<%= f.select :sorts, { '消費期限が近い順': 'expiry_date asc', '消費期限が遠い順': 'expiry_date desc', '購入日順が近い順': 'purchase_date desc', '購入日順が遠い順': 'purchase_date asc'}, {:include_blank => '選択しない'}, {class: "form-control col-xs-3", style: "display: inline-block; width: 35%;"} %>
 			</div>
-
 			<div class="actions">
 				<button class="btn btn-default col-xs-offset-2 col-xs-2", type="submit">検索</button>
 			</div>
 
 		<% end %>
-			<div class="index-table col-xs-12">
 
+		<div class="index-table col-xs-12">
 			<table class="table">
 				<thead>
 					<tr>
@@ -46,7 +45,6 @@
 					<% end %>
 				</tbody>
 			</table>
-
 			<%= link_to new_food_path do %>
 			<button class="btn btn-default">食材登録</button>
 			<% end %>

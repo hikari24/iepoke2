@@ -71,3 +71,8 @@ gem 'devise-i18n-views'
 gem 'whenever'
 gem 'pry-rails'
 gem 'ransack'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
