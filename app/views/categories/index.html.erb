@@ -1,22 +1,26 @@
 <div class="container">
 	<div class="row">
-		<h4>カテゴリー一覧</h4>
-		<p>カテゴリー名をクリックすると該当の食材が表示される</p>
+		<h4 class="col-xs-12">カテゴリー一覧</h4>
+			<p class="col-xs-11">カテゴリー名をクリックすると該当の食材が表示されます</p>
 
-			<%= form_with model: @category, local: true do |f| %>
-                <div class="form-group">
-                    <%= f.label :カテゴリー, class: "col-xs-3" %>
-                    <%= f.text_field :name, class: "form-control col-xs-4", style: "display: inline-block; width: auto;" %>
-                    <div>
-                      <button class="btn btn-info col-xs-offset-1 col-xs-2" type="submit">追加</button>
-                    </div>
-                  </div>
+			<div class="add-category-form">
+				<%= form_with model: @category, local: true do |f| %>
+                	<div class="form-group">
+                    	<%= f.label :カテゴリー, class: "col-xs-3" %>
+                    	<%= f.text_field :name, class: "form-control col-xs-4", style: "display: inline-block; width: auto;" %>
+                    	<div>
+                    		<button class="btn btn-info col-xs-offset-1 col-xs-2" type="submit">追加</button>
+                    	</div>
+                  	</div>
                 <% end %>
+            </div>
 
+            <div class="category-index-table col-xs-12">
 			<table class="table">
 				<thead>
 					<tr>
 						<th>カテゴリー</th>
+						<th></th>
 						<th></th>
 						<th></th>
 					</tr>
@@ -37,6 +41,7 @@
 					<% end %>
 				</tbody>
 			</table>
+		</div>
 
 			<%=link_to new_food_path do %>
 			<button class="btn btn-default">食材登録</button>

@@ -6,8 +6,8 @@
 
 			<div class="form-group">
 				<%= f.label :カテゴリー, class: "col-xs-4" %>
-				<%= f.collection_select :category_id, Category.where(user_id: current_user.id), :id, :name, {prompt: "選択してください"}, {class: "form-control", style: "display: inline-block; width: auto;"} %><br>
-				<%= link_to '追加', categories_path %>
+				<%= f.collection_select :category_id, Category.where(user_id: current_user.id), :id, :name, {prompt: "選択してください"}, {class: "form-control", style: "display: inline-block; width: 35%;"} %><br>
+				<%= link_to 'カテゴリー追加', categories_path %>
 			</div>
 
 			<div class="form-group">

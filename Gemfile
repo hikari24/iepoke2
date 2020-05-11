@@ -56,6 +56,12 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem "factory_bot_rails"
+  gem 'faker'
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rbenv'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -70,3 +76,9 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'whenever'
 gem 'pry-rails'
+gem 'ransack'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
