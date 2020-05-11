@@ -20,9 +20,10 @@
 header {
 	max-width: 500px;
 	heigth: 150px;
-	background-color: #ef857d;
+	background-color: #fff;
 	margin: 0 auto;
 	padding:10px;
+  border: solid 1px #ff9933;
 }
 
 #nav-drawer {
@@ -48,7 +49,7 @@ header {
   height: 3px;/*線の太さ*/
   width: 25px;/*長さ*/
   border-radius: 3px;
-  background: #555;
+  background: #ff9933;
   display: block;
   content: '';
   cursor: pointer;
@@ -112,11 +113,14 @@ header {
 }
 
 .logo-area {
-margin: 0 auto;
-text-align: center;
+width: 90px;
+height: 55px;
+margin-left: 190%;
+background-image: url(logo3.png);
+background-size: 90px 55px ;
 }
 
-li {
+li { //ハンバーガーメニューの中身
 	list-style: none;
 	padding: 20px;
 }
@@ -125,44 +129,29 @@ li {
 	max-width: 500px;
 	margin: 0 auto;
 	padding: 20px 20px;
-	background-color: #f5ecf4;
+	background-color: #fff;
+  border-right: solid 1px #ff9933;
+  border-left: solid 1px #ff9933;
 }
 
-.user-signup,
-.user_signin {
-	margin-top: 20px;
-}
 
 .btn-danger {
 	background: #ff6347;
-	border: 1px solid #ff6347; //アウトラインのみのボタンの線の色
+	border-: 1px solid #ff6347; //アウトラインのみのボタンの線の色
 }
 
-.main-visual {
-	width: 100%;
-	height: 300px;
-	background-image: url(top.jpg);
-	background-size: cover;
-	background-position: center;
-}
 
-.signup-signin {
-	width: 100%;
-	height: 80px;
-	padding: 20px 0;
-}
-
-.three-button {
-	width: 100%;
-	height: 300px;
-	background-color: blue;
+.user-signup,
+.user_signin {
+  margin-top: 20px;
 }
 
 footer {
 	max-width: 500px;
 	height: 50px;
-	background: #ef857d;
+	background: #fff;
 	margin: 0 auto;
+  border: solid 1px #ff9933;
 }
 
 .footer {

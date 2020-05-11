@@ -4,9 +4,12 @@
     <title>Iepoke</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <script src="https://kit.fontawesome.com/b128df6664.js" crossorigin="anonymous"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="application.js"></script>
+ -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -25,14 +28,14 @@
                         <li><%= link_to about_path do %>
                           <i class="far fa-question-circle">  いえぽけ？</i><% end  %>
                         </li>
-                        <li><%= link_to user_path do %>
+                        <li><%= link_to users_path do %>
                           <i class="fas fa-user-circle">  マイページ</i><% end %>
                         </li>
                         <li><%= link_to destroy_user_session_path, method: :delete do %>
                           <i class="fas fa-unlock">  ログアウト</i><% end %>
                         </li>
                       <% else %>
-                     
+
                         <li><%= link_to about_path do %>
                           <i class="far fa-question-circle">  いえぽけ？</i><% end %>
                         </li>
@@ -47,7 +50,9 @@
                 </nav>
               </div>
             </div>
-            <div class="logo-area">iepoke</div>
+            <%= link_to root_path do %>
+            <div class="logo-area"></div>
+            <% end %>
           </div>
         </header>
     <%= yield %>
