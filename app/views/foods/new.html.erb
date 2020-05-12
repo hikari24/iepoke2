@@ -1,8 +1,9 @@
 <div class="container">
 	<div class="row">
-		<h4>食材登録</h4>
+		<div class="col-xs-12">
+			<h4>食材登録</h4>
 
-		<%= form_with model: @food, local: true do |f| %>
+			<%= form_with model: @food, local: true do |f| %>
 
 			<div class="form-group">
 				<%= f.label :カテゴリー, class: "col-xs-4" %>
@@ -30,7 +31,8 @@
 				<button class="btn btn-warning col-xs-4", type="submit">登録</button>
 			</div>
 
-		<% end %>
+			<% end %>
+		</div>
 
 	</div>
 </div>
