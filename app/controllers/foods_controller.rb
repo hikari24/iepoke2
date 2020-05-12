@@ -56,6 +56,21 @@ class FoodsController < ApplicationController
 	end
 
 	def wish_list
+		food = Food.where(wish_list: true)
+		@foods = food.where(user_id: current_user.id)
+
+	end
+
+	def wish_list_create
+		@food = Food.find(params[:id])
+		@food.update(wish_list: true)
+		redirect_to request.referrer || root_url
+	end
+
+	def wish_list_destroy
+		@food = Food.find(params[:id])
+		@food.update(wish_list: false)
+		redirect_to request.referrer || root_url
 	end
 
 	private

@@ -24,9 +24,9 @@
 			</tr>
 		</table>
 		<% if @food.wish_list == false %>
-			<button class="btn btn-primary">ほしい</button>
+			<%=link_to foods_wish_list_create_food_path(@food), method: :put do %><button class="btn btn-default">ほしい  <i class="fas fa-apple-alt"></i></button><% end %>
 		<% else %>
-			<button class="btn btn-default">いらない</button>
+			<%=link_to foods_wish_list_destroy_food_path(@food), method: :delete do %><button class="btn btn-default">いらない  <i class="fas fa-apple-alt"></i></button><% end %>
 		<% end %>
 
 		<%= link_to '編集', edit_food_path(@food) %>
