@@ -1,5 +1,25 @@
 <div class="container">
 	<div class="row">
+		<div class="col-xs-12">
 		<p>ほしいものリスト</p>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>食材</th>
+						<th>数量</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @foods.each do |food| %>
+					<tr>
+						<td><%= link_to food_path(food) do %><%= food.name %><% end %></td>
+						<td><%= food.quantity %></td>
+						<td><%=link_to foods_wish_list_destroy_food_path(food), method: :delete do %><button class="btn btn-default">いらない  <i class="fas fa-apple-alt"></i></button><% end %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>

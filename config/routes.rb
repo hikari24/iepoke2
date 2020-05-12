@@ -16,8 +16,14 @@ resource :users, only: [:show, :edit, :update]
  get "/users/quit" => "users#quit"
  put "/users/hide" => "users#hide"
  get "/users/thank" => "users#thank"
-resources :foods
- get "wish_lists" => "foods#wish_list"
+resources :foods do
+	member do
+	put "foods/wish_list_create" => "foods#wish_list_create"
+ 	delete "foods/wish_list_destroy" => "foods#wish_list_destroy"
+ end
+ end
+ get "/wish_lists" => "foods#wish_list"
+
 resources :categories, only: [:new, :create, :index, :edit, :update, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

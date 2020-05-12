@@ -1,5 +1,6 @@
 <div class="container">
 	<div class="row">
+		<div class="col-xs-12">
 		<h4>食材詳細</h4>
 		<table class="table">
 			<tr>
@@ -24,13 +25,14 @@
 			</tr>
 		</table>
 		<% if @food.wish_list == false %>
-			<button class="btn btn-primary">ほしい</button>
+			<%=link_to foods_wish_list_create_food_path(@food), method: :put do %><button class="btn btn-default">ほしい  <i class="fas fa-apple-alt"></i></button><% end %>
 		<% else %>
-			<button class="btn btn-default">いらない</button>
+			<%=link_to foods_wish_list_destroy_food_path(@food), method: :delete do %><button class="btn btn-default">いらない  <i class="fas fa-apple-alt"></i></button><% end %>
 		<% end %>
 
 		<%= link_to '編集', edit_food_path(@food) %>
 		<%= link_to '一覧へ', foods_path %>
 		<%= link_to '使い切った', @food, method: :delete, "data-confirm" => "使い切った食材は食材の一覧から削除されます。削除してもよろしいですか？" %>
+	</div>
 	</div>
 </div>

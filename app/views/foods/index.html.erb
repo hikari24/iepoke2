@@ -1,5 +1,6 @@
 <div class="container">
 	<div class="row">
+		<div class="col-xs-12">
 		<h4>食材一覧</h4>
 
 		<%= search_form_for @q do |f| %>
@@ -40,7 +41,12 @@
 							<td><%= link_to food_path(food) do %><%= food.name %><% end %></td>
 							<!-- <td><%= food.purchase_date.strftime("%Y/%m/%d") %></td> -->
 							<td><%= food.expiry_date.strftime("%Y/%m/%d") %></td>
-							<td><%= link_to '編集', edit_food_path(food)%></td>
+							<td><% if food.wish_list == false %>
+								<%=link_to foods_wish_list_create_food_path(food), method: :put do %><button class="btn btn-default">ほしい  <i class="fas fa-apple-alt"></i></button><% end %>
+								<% else %>
+								<%=link_to foods_wish_list_destroy_food_path(food), method: :delete do %><button class="btn btn-default">いらない  <i class="fas fa-apple-alt"></i></button><% end %>
+								<% end %>
+							</td>
 						</tr>
 					<% end %>
 				</tbody>
@@ -49,5 +55,6 @@
 			<button class="btn btn-default">食材登録</button>
 			<% end %>
 		</div>
+	</div>
 	</div>
 </div>
