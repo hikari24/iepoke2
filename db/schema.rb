@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2020_05_08_025415) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
   create_table "foods", force: :cascade do |t|
@@ -42,8 +41,6 @@ ActiveRecord::Schema.define(version: 2020_05_08_025415) do
     t.boolean "wish_list", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_foods_on_category_id"
-    t.index ["user_id"], name: "index_foods_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
