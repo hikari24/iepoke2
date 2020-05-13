@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 2020_05_08_025415) do
     t.integer "category_id", null: false
     t.string "name", null: false
     t.string "quantity", null: false
-    t.datetime "purchase_date", null: false
-    t.datetime "expiry_date", null: false
+    t.datetime "purchase_date", default: "2020-05-13 07:40:12", null: false
+    t.datetime "expiry_date", default: "2020-05-13 07:40:12", null: false
     t.boolean "wish_list", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

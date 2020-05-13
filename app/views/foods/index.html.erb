@@ -1,60 +1,55 @@
-<div class="container">
-	<div class="row">
-		<div class="col-xs-12">
-		<h4>食材一覧</h4>
+<div class="col-xs-12">
+	<h4>食材一覧</h4>
 
-		<%= search_form_for @q do |f| %>
-			<div class="form-group">
-				<%= f.label :食材名, class: "col-xs-3" %>
-				<%= f.search_field :name_cont, class: "form-control", style: "display: inline-block; width: auto;"%>
-			</div>
-			<div class="form-group">
-				<%= f.label :カテゴリー, class: "col-xs-3" %>
-				<%= f.collection_select :category_id_eq, @categories, :id, :name, {:include_blank => '選択しない'}, {class: "form-control", style: "display: inline-block; width: 35%;"} %>
-			</div>
-			<div class="form-group">
-				<%= f.label :並べ替え, class: "col-xs-3" %>
-				<%= f.select :sorts, { '消費期限が近い順': 'expiry_date asc', '消費期限が遠い順': 'expiry_date desc', '購入日順が近い順': 'purchase_date desc', '購入日順が遠い順': 'purchase_date asc'}, {:include_blank => '選択しない'}, {class: "form-control col-xs-3", style: "display: inline-block; width: 35%;"} %>
-			</div>
-			<div class="actions">
-				<button class="btn btn-default col-xs-offset-2 col-xs-2", type="submit">検索</button>
-			</div>
+	<%= search_form_for @q do |f| %>
+		<div class="form-group">
+			<%= f.label :食材名, class: "col-xs-3" %>
+			<%= f.search_field :name_cont, class: "form-control", style: "display: inline-block; width: 35%;"%>
+		</div>
+		<div class="form-group">
+			<%= f.label :カテゴリー, class: "col-xs-3" %>
+			<%= f.collection_select :category_id_eq, @categories, :id, :name, {:include_blank => '選択しない'}, {class: "form-control", style: "display: inline-block; width: 35%;"} %>
+		</div>
+		<div class="form-group">
+			<%= f.label :並べ替え, class: "col-xs-3" %>
+			<%= f.select :sorts, { '消費期限が近い順': 'expiry_date asc', '消費期限が遠い順': 'expiry_date desc', '購入日順が近い順': 'purchase_date desc', '購入日順が遠い順': 'purchase_date asc'}, {:include_blank => '選択しない'}, {class: "form-control col-xs-3", style: "display: inline-block; width: 35%;"} %>
+		</div>
+		<div class="actions">
+			<button class="btn btn-default col-xs-offset-1 col-xs-2", type="submit">検索</button>
+		</div>
 
-		<% end %>
+	<% end %>
 
-		<div class="index-table col-xs-12">
-			<table class="table">
-				<thead>
-					<tr>
-						<th class="col-xs-3">カテゴリー</th>
-						<th>食材名</th>
+	<div class="index-table col-xs-12">
+		<table class="table">
+			<thead>
+				<tr>
+					<th class="col-xs-3">カテゴリー</th>
+					<th>食材名</th>
 						<!-- <th>購入日</th> -->
-						<th>消費期限</th>
-						<th></th>
+					<th>消費期限</th>						<th></th>
 
 					</tr>
-				</thead>
-				<tbody>
-					<% @foods.each do |food| %>
-						<tr>
-							<td><%= food.category.name %></td>
-							<td><%= link_to food_path(food) do %><%= food.name %><% end %></td>
+			</thead>
+			<tbody>
+				<% @foods.each do |food| %>
+					<tr>
+						<td><%= food.category.name %></td>
+						<td><%= link_to food_path(food) do%><%= food.name %><% end %></td>
 							<!-- <td><%= food.purchase_date.strftime("%Y/%m/%d") %></td> -->
-							<td><%= food.expiry_date.strftime("%Y/%m/%d") %></td>
-							<td><% if food.wish_list == false %>
+						<td><%= food.expiry_date.strftime("%Y/%m/%d") %></td>
+						<td><% if food.wish_list == false %>
 								<%=link_to foods_wish_list_create_food_path(food), method: :put do %><button class="btn btn-default">ほしい  <i class="fas fa-apple-alt"></i></button><% end %>
-								<% else %>
+							<% else %>
 								<%=link_to foods_wish_list_destroy_food_path(food), method: :delete do %><button class="btn btn-default">いらない  <i class="fas fa-apple-alt"></i></button><% end %>
-								<% end %>
-							</td>
-						</tr>
-					<% end %>
-				</tbody>
-			</table>
-			<%= link_to new_food_path do %>
+							<% end %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<%= link_to new_food_path do %>
 			<button class="btn btn-default">食材登録</button>
-			<% end %>
-		</div>
-	</div>
+		<% end %>
 	</div>
 </div>

@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    models:
+      food:
+    attributes:
+      food:
+        category: カテゴリー
+        name: 食材名
+        quantity: 数量
+      category:
+        name: カテゴリー
+
+
+

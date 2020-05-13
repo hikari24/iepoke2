@@ -14,8 +14,11 @@ class FoodsController < ApplicationController
 	def create
 		@food = Food.new(food_params)
 		@food.user_id = current_user.id
-		@food.save
+		if @food.save
 		redirect_to food_path(@food)
+		else
+		render :new
+		end
 
 	end
 
@@ -45,8 +48,11 @@ class FoodsController < ApplicationController
     	@food = Food.find(params[:id])
 
     	#@food.user_id = current_user.id
-    	@food.update(food_params)
+    	if @food.update(food_params)
     	redirect_to food_path(@food)
+    	else
+    	render 'edit'
+    	end
     end
 
 	def destroy

@@ -1,6 +1,12 @@
-<div class="container">
-	<div class="row">
-		<div class="col-xs-12">
+<div class="expiry-date-message">
+	<%# if @food.expiry_date == Date.today %>
+		<!-- <div class="alert alert-danger">
+            <p>本日までの消費期限の食材があります。</p>
+          </div> -->
+	<%# end %>
+</div>
+
+<div class="col-xs-12">
 		<h4>マイページ</h4>
 
 		<table class="table">
@@ -25,7 +31,4 @@
           <button class="btn btn-default">退会する</button>
         <% end %>
     </div>
-</div>
-
-	</div>
 </div>
