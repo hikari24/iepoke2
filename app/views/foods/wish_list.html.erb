@@ -14,7 +14,8 @@
 					<tr>
 						<td><%= link_to food_path(food) do %><%= food.name %><% end %></td>
 						<td><%= food.quantity %></td>
-						<td><%=link_to foods_wish_list_destroy_food_path(food), method: :delete do %><button class="btn btn-default">いらない  <i class="fas fa-apple-alt"></i></button><% end %></td>
+						<td><% if food.wish_list == true %>
+							<%=link_to foods_wish_list_destroy_food_path(food), method: :delete do %><i class="fas fa-star" aria-hidden="true"></i><% end %><% end %></td>
 					</tr>
 					<% end %>
 				</tbody>

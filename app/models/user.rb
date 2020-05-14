@@ -9,4 +9,8 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
+  #ログイン時のバリデーション
+  def active_for_authentication?
+    super && (self.status == true)
+  end
 end

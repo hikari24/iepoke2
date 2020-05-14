@@ -1,14 +1,5 @@
-<div class="expiry-date-message">
-	<%# if @food.expiry_date == Date.today %>
-		<!-- <div class="alert alert-danger">
-            <p>本日までの消費期限の食材があります。</p>
-          </div> -->
-	<%# end %>
-</div>
-
 <div class="col-xs-12">
-		<h4>マイページ</h4>
-
+	<h4>マイページ</h4>
 		<table class="table">
 			<tr>
 				<th>ニックネーム</th>
@@ -19,16 +10,12 @@
 				<td><%= @user.email %></td>
 			</tr>
 		</table>
-
-
 		<div class="edit-quit-button">
-		<%= link_to edit_user_registration_path do %>
-			<button class="btn btn-default", style="display: inline-block;">登録内容の変更</button>
-		<% end %>
-		<%#= link_to "パスワードを変更する", users_password_path, class: "btn btn-primary", style: "display: inline-block;vertical-align: middle;margin-left:10px;" %>
-
-		<%= link_to users_quit_path do %>
-          <button class="btn btn-default">退会する</button>
-        <% end %>
-    </div>
+			<%= link_to edit_user_registration_path do %>
+				<button class="btn btn-default", style="display: inline-block;">登録内容の変更</button>
+			<% end %>
+			<%= link_to users_quit_path do %>
+    	      <button class="btn btn-default">退会する</button>
+        	<% end %>
+    	</div>
 </div>

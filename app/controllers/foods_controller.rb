@@ -1,4 +1,6 @@
 class FoodsController < ApplicationController
+	 before_action :authenticate_user!
+	 before_action :correct_user, only:[:show, :edit, :destroy]
 	 before_action :set_search, only: [:index]
 
   	def set_search
@@ -50,6 +52,7 @@ class FoodsController < ApplicationController
     	#@food.user_id = current_user.id
     	if @food.update(food_params)
     	redirect_to food_path(@food)
+    	flash[:notice] = "食材が編集されました。"
     	else
     	render 'edit'
     	end
@@ -82,6 +85,11 @@ class FoodsController < ApplicationController
 	private
 	def food_params
 		params.require(:food).permit(:user_id, :category_id, :name, :quantity, :purchase_date, :expiry_date, :wish_list)
+	end
+
+	def correct_user
+		@food = Food.find(params[:id])
+		redirect_to root_path unless @food.user == current_user
 	end
 
 

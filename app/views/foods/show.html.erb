@@ -6,26 +6,26 @@
 				<td class="col-xs-3"><%= @food.category.name %></td>
 			</tr>
 			<tr>
-				<td>食材名</td>
+				<th>食材名</th>
 				<td><%= @food.name %></td>
 			</tr>
 			<tr>
-				<td>数量</td>
+				<th>数量</th>
 				<td><%= @food.quantity %></td>
 			</tr>
 			<tr>
-				<td>購入日</td>
+				<th>購入日</th>
 				<td><%= @food.purchase_date.strftime("%Y/%m/%d") %></td>
 			</tr>
 			<tr>
-				<td>賞味期限</td>
+				<th>賞味期限</th>
 				<td><%= @food.expiry_date.strftime("%Y/%m/%d") %></td>
 			</tr>
 		</table>
 		<% if @food.wish_list == false %>
-			<%=link_to foods_wish_list_create_food_path(@food), method: :put do %><button class="btn btn-default">ほしい  <i class="fas fa-apple-alt"></i></button><% end %>
+			<%=link_to foods_wish_list_create_food_path(@food), method: :put do %><i class="far fa-star" aria-hidden="true"></i><% end %>
 		<% else %>
-			<%=link_to foods_wish_list_destroy_food_path(@food), method: :delete do %><button class="btn btn-default">いらない  <i class="fas fa-apple-alt"></i></button><% end %>
+			<%=link_to foods_wish_list_destroy_food_path(@food), method: :delete do %><i class="fas fa-star" aria-hidden="true"></i><% end %>
 		<% end %>
 
 		<%= link_to '編集', edit_food_path(@food) %>

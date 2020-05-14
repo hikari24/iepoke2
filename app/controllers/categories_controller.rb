@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+	before_action :authenticate_user!
 	def create
 		@category = Category.new(category_params)
 		@category.user_id = current_user.id
@@ -26,7 +27,7 @@ class CategoriesController < ApplicationController
 		redirect_to categories_path
 		else
 		render 'edit'
-		flash[:alert] = "カテゴリーを入力してください。"
+		flash[:notice] = "カテゴリーが編集されました。"
 		end
 	end
 
