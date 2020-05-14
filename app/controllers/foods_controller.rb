@@ -32,10 +32,13 @@ class FoodsController < ApplicationController
 		if params[:category_id] #カテゴリー一覧から飛んできたとき
 		@one_foods = Food.where(category_id: params[:category_id])
 		@foods = @one_foods.all
-		elsif params[:q]
+		elsif params[:q] #検索フォームで検索したとき
 		@q = Food.ransack(params[:q])
   		@search_foods = @q.result
   		@foods = @search_foods.where(user_id: current_user.id)
+  		elsif params[:expiry_date]
+  		food = Food.where(user_id: current_user.id)
+		@foods = food.where(expiry_date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
 		else
 		@foods = Food.where(user_id: current_user.id)
 		end
