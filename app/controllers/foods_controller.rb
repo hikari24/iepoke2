@@ -1,4 +1,6 @@
 class FoodsController < ApplicationController
+	 before_action :authenticate_user!
+	 before_action :correct_user, only:[:show, :edit, :destroy]
 	 before_action :set_search, only: [:index]
 
   	def set_search
@@ -14,8 +16,11 @@ class FoodsController < ApplicationController
 	def create
 		@food = Food.new(food_params)
 		@food.user_id = current_user.id
-		@food.save
+		if @food.save
 		redirect_to food_path(@food)
+		else
+		render :new
+		end
 
 	end
 
@@ -27,10 +32,13 @@ class FoodsController < ApplicationController
 		if params[:category_id] #カテゴリー一覧から飛んできたとき
 		@one_foods = Food.where(category_id: params[:category_id])
 		@foods = @one_foods.all
-		elsif params[:q]
+		elsif params[:q] #検索フォームで検索したとき
 		@q = Food.ransack(params[:q])
   		@search_foods = @q.result
   		@foods = @search_foods.where(user_id: current_user.id)
+  		elsif params[:expiry_date]
+  		food = Food.where(user_id: current_user.id)
+		@foods = food.where(expiry_date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
 		else
 		@foods = Food.where(user_id: current_user.id)
 		end
@@ -45,8 +53,12 @@ class FoodsController < ApplicationController
     	@food = Food.find(params[:id])
 
     	#@food.user_id = current_user.id
-    	@food.update(food_params)
+    	if @food.update(food_params)
     	redirect_to food_path(@food)
+    	flash[:notice] = "食材が編集されました。"
+    	else
+    	render 'edit'
+    	end
     end
 
 	def destroy
@@ -64,18 +76,23 @@ class FoodsController < ApplicationController
 	def wish_list_create
 		@food = Food.find(params[:id])
 		@food.update(wish_list: true)
-		redirect_to request.referrer || root_url
+		#redirect_to request.referrer || root_url
 	end
 
 	def wish_list_destroy
 		@food = Food.find(params[:id])
 		@food.update(wish_list: false)
-		redirect_to request.referrer || root_url
+		#redirect_to request.referrer || root_url
 	end
 
 	private
 	def food_params
 		params.require(:food).permit(:user_id, :category_id, :name, :quantity, :purchase_date, :expiry_date, :wish_list)
+	end
+
+	def correct_user
+		@food = Food.find(params[:id])
+		redirect_to root_path unless @food.user == current_user
 	end
 
 

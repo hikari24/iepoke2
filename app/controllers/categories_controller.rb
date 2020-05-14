@@ -1,9 +1,14 @@
 class CategoriesController < ApplicationController
+	before_action :authenticate_user!
 	def create
 		@category = Category.new(category_params)
 		@category.user_id = current_user.id
-		@category.save
+		if @category.save
 		redirect_to categories_path
+		else
+		redirect_to categories_path
+		flash[:alert] = "カテゴリーを入力してください。"
+		end
 	end
 
 	def index
@@ -18,14 +23,19 @@ class CategoriesController < ApplicationController
 
 	def update
 		@category = Category.find(params[:id])
-		@category.update(category_params)
+		if @category.update(category_params)
 		redirect_to categories_path
+		else
+		render 'edit'
+		flash[:notice] = "カテゴリーが編集されました。"
+		end
 	end
 
 	def destroy
 		@user = current_user.id
 		@category = Category.find(params[:id])
 		@category.destroy
+		flash[:notice] = "カテゴリーが削除されました。"
 		redirect_to categories_path
 	end
 

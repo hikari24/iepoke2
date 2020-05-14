@@ -1,5 +1,4 @@
-<div class="container">
-	<div class="row">
+
 		<div class="main-visual">
 			<p class="main-visual-text">家にある食材を<br>
 			スマホで<br>
@@ -34,6 +33,10 @@
     	    	<button class="btn btn-default col-xs-offset-3 col-xs-6"><i class="fas fa-star"></i>  ほしいものリスト</button>
         		<% end %>
         	</div>
+
+            <div class="expiry_date-button row">
+                <%= link_to foods_path(expiry_date: Date.today) do %>
+                <button class="btn btn-default col-xs-offset-3 col-xs-6"><i class="far fa-bell"></i>  本日までの消費期限の食材</button>
+                <% end %>
+            </div>
         </div>
-	</div>
-</div> 

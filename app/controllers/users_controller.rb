@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-
 	def show
 		@user = current_user
+		@food = @user.foods
 	end
 
 	def edit

@@ -25,24 +25,24 @@
                 <nav>
                     <ui>
                      <% if user_signed_in? %>
-                        <li><%= link_to about_path do %>
+                        <li class="humberger-menu"><%= link_to about_path do %>
                           <i class="far fa-question-circle">  いえぽけ？</i><% end  %>
                         </li>
-                        <li><%= link_to users_path do %>
+                        <li class="humberger-menu"><%= link_to users_path do %>
                           <i class="fas fa-user-circle">  マイページ</i><% end %>
                         </li>
-                        <li><%= link_to destroy_user_session_path, method: :delete do %>
+                        <li class="humberger-menu"><%= link_to destroy_user_session_path, method: :delete do %>
                           <i class="fas fa-unlock">  ログアウト</i><% end %>
-                        </li>
+                        </li class="humberger-menu">
                       <% else %>
 
-                        <li><%= link_to about_path do %>
+                        <li class="humberger-menu"><%= link_to about_path do %>
                           <i class="far fa-question-circle">  いえぽけ？</i><% end %>
                         </li>
-                        <li><%= link_to new_user_session_path do %>
+                        <li class="humberger-menu"><%= link_to new_user_session_path do %>
                           <i class="fas fa-lock">   ログイン</i><% end %>
                         </li>
-                        <li><%= link_to new_user_registration_path do %>
+                        <li class="humberger-menu"><%= link_to new_user_registration_path do %>
                           <i class="fas fa-user-plus">  新規会員登録</i><% end %>
                         </li>
                       <% end %>
@@ -55,7 +55,14 @@
             <% end %>
           </div>
         </header>
-    <%= yield %>
+        <div class="container">
+          <div class="row">
+            <div id="flash">
+              <%= render "layouts/flash" %>
+            </div>
+            <%= yield %>
+          </div>
+        </div>
     <footer>
       <p class="footer">iepoke</p>
     </footer>

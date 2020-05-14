@@ -1,0 +1,10 @@
+<% if @food.errors.any? %>
+	<div id="error_explanation">
+		<h3><%= pluralize(@food.errors.count, "つ") %> のエラーがあるため、食材を保存できませんでした。</h3>
+			<ul>
+				<% @food.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+	</div>
+<% end %>

@@ -17,6 +17,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+h2 {
+  font-size: 20px;
+}
+
+#error_explanation {
+  margin-bottom: 50px;
+}
+
 header {
 	max-width: 500px;
 	heigth: 150px;
@@ -120,7 +128,7 @@ background-image: image-url(logo3);
 background-size: 90px 55px;
 }
 
-li { //ハンバーガーメニューの中身
+.humberger-menu { //ハンバーガーメニューの中身
 	list-style: none;
 	padding: 20px;
 }

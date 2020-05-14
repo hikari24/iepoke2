@@ -14,8 +14,8 @@ get "/about" => "home#about"
 resource :users, only: [:show, :edit, :update]
  get "/users/password" => "users#edit"
  get "/users/quit" => "users#quit"
- put "/users/hide" => "users#hide"
- get "/users/thank" => "users#thank"
+ put "/users/hide" => "users#hide", as: 'users_hide'
+ get "/users/thank" => "users#thank", as: 'users_thank'
 resources :foods do
 	member do
 	put "foods/wish_list_create" => "foods#wish_list_create"

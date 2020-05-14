@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    models:
+      food:
+    attributes:
+      food: 
+        category: カテゴリー
+        name: 食材名
+        quantity: 数量
+        purchase_date: 購入日
+        expiry_date: 消費期限
+      category:
+        name: カテゴリー
+
+
+
