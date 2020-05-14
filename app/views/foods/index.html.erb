@@ -26,9 +26,9 @@
 				<tr>
 					<th class="col-xs-3">カテゴリー</th>
 					<th>食材名</th>
-					<th>消費期限</th>						<th></th>
-
-					</tr>
+					<th>消費期限</th>						
+					<th></th>
+				</tr>
 			</thead>
 			
 			<tbody>
@@ -37,12 +37,7 @@
 						<td><%= food.category.name %></td>
 						<td><%= link_to food_path(food) do%><%= food.name %><% end %></td>
 						<td><%= food.expiry_date.strftime("%Y/%m/%d") %></td>
-						<td><% if food.wish_list == false %>
-								<%=link_to foods_wish_list_create_food_path(food), method: :put do %><i class="far fa-star" aria-hidden="true"></i><% end %>
-							<% else %>
-								<%=link_to foods_wish_list_destroy_food_path(food), method: :delete do %><i class="fas fa-star" aria-hidden="true"></i><% end %>
-							<% end %>
-						</td>
+						<td id="wish_list_btn-<%= food.id %>"><%= render 'foods/wish_list', food: food %></td>
 					</tr>
 				<% end %>
 			</tbody>

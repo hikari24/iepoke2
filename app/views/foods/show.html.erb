@@ -2,7 +2,7 @@
 		<h4>食材詳細</h4>
 		<table class="table">
 			<tr>
-				<td class="col-xs-3">カテゴリー</td>
+				<th class="col-xs-2">カテゴリー</td>
 				<td class="col-xs-3"><%= @food.category.name %></td>
 			</tr>
 			<tr>
@@ -22,11 +22,10 @@
 				<td><%= @food.expiry_date.strftime("%Y/%m/%d") %></td>
 			</tr>
 		</table>
-		<% if @food.wish_list == false %>
-			<%=link_to foods_wish_list_create_food_path(@food), method: :put do %><i class="far fa-star" aria-hidden="true"></i><% end %>
-		<% else %>
-			<%=link_to foods_wish_list_destroy_food_path(@food), method: :delete do %><i class="fas fa-star" aria-hidden="true"></i><% end %>
-		<% end %>
+		
+		<div id="wish_list_btn-<%= @food.id %>">
+			<%= render 'wish_list', food: @food %>
+		</div>
 
 		<%= link_to '編集', edit_food_path(@food) %>
 		<%= link_to '一覧へ', foods_path %>

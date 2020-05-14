@@ -73,13 +73,13 @@ class FoodsController < ApplicationController
 	def wish_list_create
 		@food = Food.find(params[:id])
 		@food.update(wish_list: true)
-		redirect_to request.referrer || root_url
+		#redirect_to request.referrer || root_url
 	end
 
 	def wish_list_destroy
 		@food = Food.find(params[:id])
 		@food.update(wish_list: false)
-		redirect_to request.referrer || root_url
+		#redirect_to request.referrer || root_url
 	end
 
 	private
