@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p><%= @user.name %>様、iepoke へようこそ。</p>
+      <p>
+      iepoke への会員登録が完了いたしました。</p>
+      <p>このサイトにログインするには、<%= link_to 'こちら', root_url %>をクリックしてください。</p>
+
+      <%= link_to 'リンク',foods_url(expiry_date: Date.today) %>
+  </body>
+</html>

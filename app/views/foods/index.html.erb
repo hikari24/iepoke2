@@ -12,7 +12,7 @@
 		</div>
 		<div class="form-group">
 			<%= f.label :並べ替え, class: "col-xs-3" %>
-			<%= f.select :sorts, { '消費期限が近い順': 'expiry_date asc', '消費期限が遠い順': 'expiry_date desc', '購入日順が近い順': 'purchase_date desc', '購入日順が遠い順': 'purchase_date asc'}, {:include_blank => '選択しない'}, {class: "form-control col-xs-3", style: "display: inline-block; width: 35%;"} %>
+			<%= f.select :sorts, { '消費期限が近い順': 'expiry_date asc', '消費期限が遠い順': 'expiry_date desc', '購入日順が近い順': 'purchase_date desc', '購入日順が遠い順': 'purchase_date asc'}, {:include_blank => '選択しない', selected: params[:q][:sorts]}, {class: "form-control col-xs-3", style: "display: inline-block; width: 35%;"} %>
 		</div>
 		<div class="actions">
 			<button class="btn btn-default col-xs-offset-1 col-xs-2", type="submit">検索</button>

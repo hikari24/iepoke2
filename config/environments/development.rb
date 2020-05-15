@@ -62,14 +62,17 @@ Rails.application.configure do
 
   # config/environments/development.rb
   # ↓ 以下を追加
+  config.action_controller.asset_host = 'http://localhost:3000'
+  config.action_mailer.asset_host = config.action_controller.asset_host
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
   config.action_mailer.delivery_method = :letter_opener_web
   config.action_mailer.smtp_settings = {
   port: 587,
   address: 'smtp.gmail.com',
   domain: 'smtp.gmail.com',
-  user_name: 'iepoke@gmail.com',
-  password: 'iepoke',
+  user_name: 'iepoke.dwc@gmail.com',
+  password: 'Iepoke99',
   enable_starttls_auto: true
 }
 
