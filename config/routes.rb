@@ -32,5 +32,4 @@ namespace :admins do
 	root to: "home#top"
 	resources :users, only: [:index, :show, :edit, :update]
 end
-
 end
