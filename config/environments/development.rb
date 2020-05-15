@@ -31,7 +31,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = true
 
@@ -68,8 +68,8 @@ Rails.application.configure do
   port: 587,
   address: 'smtp.gmail.com',
   domain: 'smtp.gmail.com',
-  user_name: 'a.hikari24@gmail.com',
-  password: 'hikari24',
+  user_name: 'iepoke@gmail.com',
+  password: 'iepoke',
   enable_starttls_auto: true
 }
 

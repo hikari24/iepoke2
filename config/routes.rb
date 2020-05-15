@@ -32,4 +32,9 @@ namespace :admins do
 	root to: "home#top"
 	resources :users, only: [:index, :show, :edit, :update]
 end
+
+if Rails.env.development?
+  mount LetterOpenerWeb::Engine, at: '/letter_opener'
+end
+
 end
