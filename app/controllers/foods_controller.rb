@@ -30,17 +30,20 @@ class FoodsController < ApplicationController
 
 	def index
 		if params[:category_id] #カテゴリー一覧から飛んできたとき
+		params[:q] = { sorts: 'id desc' } #検索フォーム以外からアクセスした時は降順で表示
 		@one_foods = Food.where(category_id: params[:category_id])
-		@foods = @one_foods.all
+		@foods = @one_foods.all.page(params[:page])
 		elsif params[:q] #検索フォームで検索したとき
 		@q = Food.ransack(params[:q])
   		@search_foods = @q.result
-  		@foods = @search_foods.where(user_id: current_user.id)
+  		@foods = @search_foods.where(user_id: current_user.id).page(params[:page])
   		elsif params[:expiry_date]
+  		params[:q] = { sorts: 'id desc' }
   		food = Food.where(user_id: current_user.id)
-		@foods = food.where(expiry_date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+		@foods = food.where(expiry_date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).page(params[:page])
 		else
-		@foods = Food.where(user_id: current_user.id)
+		params[:q] = { sorts: 'id desc' }
+		@foods = Food.where(user_id: current_user.id).page(params[:page])
 		end
 	end
 
@@ -87,7 +90,7 @@ class FoodsController < ApplicationController
 
 	private
 	def food_params
-		params.require(:food).permit(:user_id, :category_id, :name, :quantity, :purchase_date, :expiry_date, :wish_list)
+		params.require(:food).permit(:user_id, :category_id, :name, :quantity, :purchase_date, :expiry_date, :wish_list, :image)
 	end
 
 	def correct_user
@@ -96,8 +99,7 @@ class FoodsController < ApplicationController
 	end
 
 
-	# def search_params
- #    params.require(:q).permit(:sorts, :category_id)
- #    # 他のパラメーターもここに入れる
- #  	end
+	def search_params
+    	params.require(:q).permit(:sorts, :category_id)
+ 	end
 end

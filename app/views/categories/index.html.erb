@@ -7,7 +7,7 @@
                   	<%= f.label :カテゴリー, class: "col-xs-3" %>
                    	<%= f.text_field :name, class: "form-control col-xs-4", style: "display: inline-block; width: auto;" %>
                  	<div>
-                    	<button class="btn btn-info col-xs-offset-1 col-xs-2" type="submit">追加</button>
+                    	<button class="btn btn-default col-xs-offset-1 col-xs-2" type="submit">追加</button>
                     </div>
                   </div>
                <% end %>
@@ -31,7 +31,7 @@
 								<button class="btn btn-default">編集</button>
 								<% end %>
 							</td>
-							<td><%= link_to '削除', category, method: :delete, "data-confirm" => "カテゴリーを削除すると関連する食材も削除されます。削除してもよろしいですか？" %>
+							<td><%= link_to category, method: :delete, "data-confirm" => "カテゴリーを削除すると関連する食材も削除されます。削除してもよろしいですか？" do %><button class="btn btn-default">削除</button><% end %>
 							</td>
 							<td></td>
 							<td></td>

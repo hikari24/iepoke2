@@ -1,6 +1,7 @@
 class Food < ApplicationRecord
 	belongs_to :user
 	belongs_to :category
+	attachment :image
 
 	validates :name, presence: true, length: { maximum: 20 }
 	validates :quantity, presence: true

@@ -6,6 +6,8 @@
 			管理しよう！</p>
 		</div>
 
+        <hr>
+
 		<div class="signup-signin">
 			<%= link_to new_user_registration_path do %>
             <button class="btn btn-warning col-xs-offset-1 col-xs-4">新規登録</button>
@@ -14,6 +16,8 @@
             <button class="btn btn-danger col-xs-offset-2 col-xs-4">ログイン</button>
         	<% end %>
         </div>
+
+        <hr>
 
         <div class="three-button">
         	<div class="new-button row">
@@ -30,7 +34,7 @@
 
         	<div class="wish_list-button row">
 	        	<%= link_to wish_lists_path do %>
-    	    	<button class="btn btn-default col-xs-offset-3 col-xs-6"><i class="fas fa-star"></i>  ほしいものリスト</button>
+    	    	<button class="btn btn-default col-xs-offset-3 col-xs-6"><i class="fas fa-star"></i><i class="fas fa-shopping-bag"></i>  ほしいものリスト</button>
         		<% end %>
         	</div>
 

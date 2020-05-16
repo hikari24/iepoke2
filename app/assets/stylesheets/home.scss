@@ -11,8 +11,6 @@
 }
 
 .signup-signin {
-    border-left: solid 1px #ff9933;
-    border-right: solid 1px #ff9933;
 	width: 100%;
 	height: 80px;
 	padding: 20px 0;
@@ -23,9 +21,7 @@
 	height: 240px;
 	padding-top:20px;
 	background-color: #fff;
-	border: solid 1px #ff9933;
 }
-
 
 .new-button,
 .index-button,
@@ -33,3 +29,14 @@
   margin-bottom: 20px;
 }
 
+.about1,
+.about3 {
+	background-color: #ff7f50;
+	color: white;
+}
+
+.about1,
+.about2,
+.about3 {
+	padding: 10px;	
+}

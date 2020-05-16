@@ -142,9 +142,41 @@ background-size: 90px 55px;
   border-left: solid 1px #ff9933;
 }
 
+.btn-warning {
+  background: #fa6800;
+  border: 1px solid #fa6800;
+}
+
 .btn-danger {
-	background: #ff6347;
-	border-: 1px solid #ff6347; //アウトラインのみのボタンの線の色
+	background: #f0a30a;
+	border: 1px solid #f0a30a; //アウトラインのみのボタンの線の色
+}
+
+hr {
+    border: 0.5px solid #f0a30a;
+    display: block;
+    margin-top: 15px;
+}
+
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+  border-radius: 15px;
+}
+
+.pagination>.active>a {     
+  background: #ff9933;     /*背景の色を変える*/
+  border-radius: 30px;     /*角を丸くする*/
+}
+
+.pagination>li>a:hover { 
+  background: #ffedab;       
+  border-radius: 15px;    /*角を丸くする*/
+}
+
+.pagination > li:first-child > a,
+.pagination > li:last-child > a {
+  border-radius: 15px;
 }
 
 footer {

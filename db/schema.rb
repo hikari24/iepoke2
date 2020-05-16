@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_05_08_025415) do
     t.integer "category_id", null: false
     t.string "name", null: false
     t.string "quantity", null: false
+    t.string "image_id"
     t.datetime "purchase_date", null: false
     t.datetime "expiry_date", null: false
     t.boolean "wish_list", default: false, null: false

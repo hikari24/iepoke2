@@ -52,6 +52,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'letter_opener'
   gem 'letter_opener_web'
 end
 
@@ -60,7 +61,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
   gem "factory_bot_rails"
   gem 'faker'
 end
@@ -78,6 +79,8 @@ gem 'devise-i18n-views'
 gem 'whenever', require: false
 gem 'pry-rails'
 gem 'ransack'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
 
 gem 'dotenv-rails'
 group :production do
