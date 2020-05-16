@@ -40,11 +40,11 @@ bind "unix://#{Rails.root}/tmp/sockets/puma.sock"
 rails_root = Dir.pwd
 # 本番環境のみデーモン起動
 if Rails.env.production?
-    pidfile File.join(rails_root, 'tmp', 'pids', 'puma.pid')
-    state_path File.join(rails_root, 'tmp', 'pids', 'puma.state')
+    pidfile File.join(rails_root, 'tmp', 'pids', 'puma.pid') #app/tmp/puma.pidにpumaのプロセス番号が記述される
+    state_path File.join(rails_root, 'tmp', 'pids', 'puma.state') # app/tmp/puma.statusにpumaの状態が記述される
     stdout_redirect(
-      File.join(rails_root, 'log', 'puma.log'),
-      File.join(rails_root, 'log', 'puma-error.log'),
+      File.join(rails_root, 'log', 'puma.log'), #app/tmp/puma.logにpumaのログが記述される
+      File.join(rails_root, 'log', 'puma-error.log'), #app/tmp/puma-error.logにpumaのエラーログが記述される
       true
     )
     # デーモン

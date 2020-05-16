@@ -2,7 +2,9 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
 
-  # def create
+  def create
+    super
+    UserMailer.welcome_email(resource).deliver unless resource.invalid?
   #   build_resource(sign_up_params)
 
   #   resource.save
@@ -23,7 +25,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #     set_minimum_password_length
   #     respond_with resource
   #   end
-  # end
+  end
 
   protected
 

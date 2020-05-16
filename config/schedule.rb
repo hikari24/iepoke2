@@ -4,17 +4,13 @@
 # http://en.wikipedia.org/wiki/Cron
 
 # Example:
-# 絶対パスから相対パス指定
-env :PATH, ENV['PATH']
-#
-# ログファイルの出力先
-set :output, 'log/cron.log'
+env :PATH, ENV['PATH'] # 絶対パスから相対パス指定
+set :output, 'log/cron.log' # ログファイルの出力先
 # "/path/to/my/cron_log.log"
-#
-# ジョブの実行環境の指定
-set :environment, :development
+set :environment, :development # ジョブの実行環境の指定
 
 every 1.days, at: '8:00 am' do
+# every 1.minute do
 # every 2.hours do
 #   command "/usr/bin/some_great_command"
 #   runner "MyModel.some_method"
@@ -28,5 +24,5 @@ every 1.days, at: '8:00 am' do
 # Learn more: http://github.com/javan/whenever
 
 # Rails内のメソッド実行
-  runner "UserMailer.notify_user"
+  runner "UserMailer.expiry_date_foods"
 end

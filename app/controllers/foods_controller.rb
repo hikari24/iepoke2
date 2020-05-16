@@ -30,6 +30,7 @@ class FoodsController < ApplicationController
 
 	def index
 		if params[:category_id] #カテゴリー一覧から飛んできたとき
+		params[:q] = { sorts: 'id desc' } #検索フォーム以外からアクセスした時は降順で表示
 		@one_foods = Food.where(category_id: params[:category_id])
 		@foods = @one_foods.all
 		elsif params[:q] #検索フォームで検索したとき
@@ -37,9 +38,11 @@ class FoodsController < ApplicationController
   		@search_foods = @q.result
   		@foods = @search_foods.where(user_id: current_user.id)
   		elsif params[:expiry_date]
+  		params[:q] = { sorts: 'id desc' }
   		food = Food.where(user_id: current_user.id)
 		@foods = food.where(expiry_date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
 		else
+		params[:q] = { sorts: 'id desc' }
 		@foods = Food.where(user_id: current_user.id)
 		end
 	end
@@ -96,8 +99,7 @@ class FoodsController < ApplicationController
 	end
 
 
-	# def search_params
- #    params.require(:q).permit(:sorts, :category_id)
- #    # 他のパラメーターもここに入れる
- #  	end
+	def search_params
+    	params.require(:q).permit(:sorts, :category_id)
+ 	end
 end
