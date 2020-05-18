@@ -95,7 +95,7 @@ class FoodsController < ApplicationController
 
 	def correct_user
 		@food = Food.find(params[:id])
-		redirect_to root_path unless @food.user == current_user
+		redirect_to foods_path unless @food.user == current_user
 	end
 
 

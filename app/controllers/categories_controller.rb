@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
 		@category.user_id = current_user.id
 		if @category.save
 		redirect_to categories_path
+		flash[:notice] = "カテゴリーが追加されました。"
 		else
 		redirect_to categories_path
 		flash[:alert] = "カテゴリーを入力してください。"
@@ -25,9 +26,9 @@ class CategoriesController < ApplicationController
 		@category = Category.find(params[:id])
 		if @category.update(category_params)
 		redirect_to categories_path
+		flash[:notice] = "カテゴリーが編集されました。"
 		else
 		render 'edit'
-		flash[:notice] = "カテゴリーが編集されました。"
 		end
 	end
 
