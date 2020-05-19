@@ -20,7 +20,7 @@ describe 'ユーザー認証のテスト' do
 		 		fill_in 'user[password]', with: ""
 		 		fill_in 'user[password_confirmation]', with: ""
 
-		 		click_button '新規登録'
+		 		click_on '新規登録'
 		 		expect(page).to have_content 'エラー'
 
 		 	end
@@ -36,7 +36,8 @@ describe 'ユーザー認証のテスト' do
 		 		fill_in 'user[password]', with: "password"
 		 		#click_button 'ログイン'
 		 		#find('button[type="submit"]').click
-		 		click_on 'ログイン'
+		 		#click_on 'ログイン'
+		 		click_button 'ログイン'
 
 		 		expect(current_path).to eq(root_path)
 			end
@@ -71,12 +72,21 @@ describe 'マイページのテスト' do
 			click_on '登録内容の変更', match: :first
 			expect(current_path).to eq(edit_users_path)
 		end
-
-		it '登録内容を変更する' do
+	end
+	context '登録内容の編集' do
+		it '登録内容を変更に成功する' do
 			visit edit_users_path
 			fill_in 'user[current_password]', with: user.password
 			click_on '更新'
 			expect(page).to have_content 'アカウント情報を変更しました'
+		end
+		it '登録内容を変更に失敗する' do
+			visit edit_users_path
+			fill_in 'user[name]', with: ""
+			fill_in 'user[email]', with: ""
+			fill_in 'user[current_password]', with: user.password
+			click_on '更新'
+			expect(page).to have_content '保存されませんでした'
 		end
 	end
 end

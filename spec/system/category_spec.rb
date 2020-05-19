@@ -18,14 +18,18 @@ describe 'カテゴリーのテスト' do
   			visit categories_path
   			expect(page).to have_content 'カテゴリー一覧'
   		end
+  		it 'カテゴリー名のリンク先が正しい' do
+  			visit categories_path
+  			expect(page).to have_link category.name, href: foods_path(category_id: 1)
+  		end
+  	end
+  	context 'カテゴリーの追加・編集' do
 		it '追加に成功する' do
 			visit categories_path
 			fill_in "category[name]", with: "肉類"
 			click_button "追加"
 			expect(page).to have_content '追加'
 		end
-	end
-	context 'カテゴリーの編集' do
 		it '編集に成功する' do
 			visit edit_category_path(category)
 			click_button '保存'
@@ -36,12 +40,6 @@ describe 'カテゴリーのテスト' do
 			fill_in 'category[name]', with: ''
 			click_button '保存'
 			expect(page).to have_content 'エラー'
-		end
-		it '削除する' do
-			visit categories_path
-			click_button '削除'
-			page.driver.browser.switch_to.alert.accept
-			expect(page).to have_content 'カテゴリーが削除されました'
 		end
 	end
 
