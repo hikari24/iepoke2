@@ -1,0 +1,48 @@
+require 'rails_helper'
+
+describe 'カテゴリーのテスト' do
+	let!(:user) { create(:user) }
+	let!(:category) { create(:category) }
+	before do
+	visit new_user_session_path
+	fill_in 'user[email]', with: user.email
+  	fill_in 'user[password]', with: user.password
+  	click_button 'ログイン'
+  	click_button '食材を登録する'
+  	visit new_food_path
+  	click_button '追加'
+  	end
+
+	context 'カテゴリーの表示' do
+		it 'カテゴリーの一覧を表示する' do
+  			visit categories_path
+  			expect(page).to have_content 'カテゴリー一覧'
+  		end
+		it '追加に成功する' do
+			visit categories_path
+			fill_in "category[name]", with: "肉類"
+			click_button "追加"
+			expect(page).to have_content '追加'
+		end
+	end
+	context 'カテゴリーの編集' do
+		it '編集に成功する' do
+			visit edit_category_path(category)
+			click_button '保存'
+			expect(page).to have_content 'カテゴリーが編集されました'
+		end
+		it '編集に失敗する' do
+			visit edit_category_path(category)
+			fill_in 'category[name]', with: ''
+			click_button '保存'
+			expect(page).to have_content 'エラー'
+		end
+		it '削除する' do
+			visit categories_path
+			click_button '削除'
+			page.driver.browser.switch_to.alert.accept
+			expect(page).to have_content 'カテゴリーが削除されました'
+		end
+	end
+
+end 
