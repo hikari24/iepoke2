@@ -59,10 +59,11 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   
-  config.action_controller.asset_host = 'http://localhost:3000'
-  config.action_mailer.asset_host = config.action_controller.asset_host
+  #config.action_controller.asset_host = 'http://localhost:3000'
+  #config.action_mailer.asset_host = config.action_controller.asset_host
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
   
+  #メールの設定
   #メールの送信に失敗した時にエラーを発火させるか
   config.action_mailer.raise_delivery_errors = true
   #メールを送信する方法
