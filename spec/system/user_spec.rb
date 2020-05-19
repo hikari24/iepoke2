@@ -34,7 +34,9 @@ describe 'ユーザー認証のテスト' do
 			it 'ログインに成功する' do
 				fill_in 'user[email]', with: "iepoke@email.com"
 		 		fill_in 'user[password]', with: "password"
-		 		click_button 'ログイン'
+		 		#click_button 'ログイン'
+		 		#find('button[type="submit"]').click
+		 		click_on 'ログイン'
 
 		 		expect(current_path).to eq(root_path)
 			end
@@ -47,8 +49,34 @@ describe 'ユーザー認証のテスト' do
 			end
 		end
 	end
+end
 
-	describe 'マイページのテスト' do
-		context
+describe 'マイページのテスト' do
+	let!(:user) { create(:user) }
+	before do
+		visit new_user_session_path
+		fill_in 'user[email]', with: user.email
+  		fill_in 'user[password]', with: user.password
+  		click_button 'ログイン'
+  	end
+  	context '表示の確認' do
+		it 'マイページの表示' do
+			visit root_path
+			click_on 'マイページ'
+			visit users_path
+			expect(page).to have_content 'マイページ'
+		end
+		it 'マイページ編集画面を表示する' do
+			visit users_path
+			click_on '登録内容の変更', match: :first
+			expect(current_path).to eq(edit_users_path)
+		end
+
+		it '登録内容を変更する' do
+			visit edit_users_path
+			fill_in 'user[current_password]', with: user.password
+			click_on '更新'
+			expect(page).to have_content 'アカウント情報を変更しました'
+		end
 	end
 end

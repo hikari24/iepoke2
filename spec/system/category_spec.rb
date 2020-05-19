@@ -13,7 +13,11 @@ describe 'カテゴリーのテスト' do
   	click_button '追加'
   	end
 
-	context 'カテゴリーの追加' do
+	context 'カテゴリーの表示' do
+		it 'カテゴリーの一覧を表示する' do
+  			visit categories_path
+  			expect(page).to have_content 'カテゴリー一覧'
+  		end
 		it '追加に成功する' do
 			visit categories_path
 			fill_in "category[name]", with: "肉類"
@@ -32,7 +36,12 @@ describe 'カテゴリーのテスト' do
 			fill_in 'category[name]', with: ''
 			click_button '保存'
 			expect(page).to have_content 'エラー'
-
+		end
+		it '削除する' do
+			visit categories_path
+			click_button '削除'
+			page.driver.browser.switch_to.alert.accept
+			expect(page).to have_content 'カテゴリーが削除されました'
 		end
 	end
 

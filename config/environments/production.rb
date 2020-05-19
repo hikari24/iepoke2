@@ -91,4 +91,22 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_controller.asset_host = 'http://iepoke.work'
+  config.action_mailer.asset_host = config.action_controller.asset_host
+  config.action_mailer.default_url_options = { host: 'iepoke.work' }
+  #メールの送信に失敗した時にエラーを発火させるか
+  config.action_mailer.raise_delivery_errors = true
+  #メールを送信する方法
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+  port: 587,
+  address: 'smtp.gmail.com',
+  domain: 'smtp.gmail.com',
+  user_name: 'iepoke.dwc@gmail.com',
+  #password: 'Iepoke99',
+  password: 'jvpjtxvgcjxmxqjm',
+  enable_starttls_auto: true
+}
 end
