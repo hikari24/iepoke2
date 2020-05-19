@@ -1,7 +1,7 @@
 class UserMailer < ApplicationMailer
   def welcome_email(user)
     @user = user
-    @url = 'http://localhost:3000'
+    @url = 'http://iepoke.work'
     mail(from: 'iepoke.dwc@gmail.com', to: user.email, subject: '会員登録完了のお知らせ')
   end
 
