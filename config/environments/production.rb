@@ -93,6 +93,10 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = { host: 'iepoke.work' }
+
+  host = 'iepoke.work'
+  Rails.application.routes.default_url_options[:host] = host
+
   #メールの設定
   #メールの送信に失敗した時にエラーを発火させるか
   config.action_mailer.raise_delivery_errors = true
