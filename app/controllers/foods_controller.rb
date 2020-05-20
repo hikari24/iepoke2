@@ -18,6 +18,7 @@ class FoodsController < ApplicationController
 		@food.user_id = current_user.id
 		if @food.save
 		redirect_to food_path(@food)
+		flash[:notice] = "食材が登録されました。"
 		else
 		render :new
 		end

@@ -3,7 +3,6 @@ require 'rails_helper'
 describe '食材のテスト' do
 	let!(:user) { create(:user) }
   let!(:category) { create(:category, user_id: user.id) }
-	#let!(:food) { create(:food, user_id: user.id, category_id: category.id) }
 	before do
 	visit new_user_session_path
 	fill_in 'user[email]', with: user.email
@@ -20,7 +19,6 @@ describe '食材のテスト' do
   #visit new_food_path
   end
     describe '登録のテスト' do
-      let(:food) { create(:food, user_id: user.id, category_id: category.id) }
         it '登録フォームが表示される' do
   		    expect(page).to have_content '食材登録'
   	    end
@@ -32,7 +30,7 @@ describe '食材のテスト' do
           fill_in 'food[purchase_date]', with: '2020/05/01'
           fill_in 'food[expiry_date]', with: '2020/05/01'
           click_button '登録', match: :first
-          expect(current_path).to eq food_path(food)
+          expect(page).to have_content '食材が登録されました'
         end
         it '登録に失敗する' do
           visit new_food_path
