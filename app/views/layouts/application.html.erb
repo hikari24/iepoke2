@@ -24,7 +24,7 @@
               <div id="nav-content">
                 <nav>
                     <ui>
-                     <% if user_signed_in? %>
+                      <% if user_signed_in? %>
                         <li class="humberger-menu"><%= link_to about_path do %>
                           <i class="far fa-question-circle">  いえぽけ？</i><% end  %>
                         </li>
@@ -34,8 +34,17 @@
                         <li class="humberger-menu"><%= link_to destroy_user_session_path, method: :delete do %>
                           <i class="fas fa-unlock">  ログアウト</i><% end %>
                         </li class="humberger-menu">
+                      <% elsif admin_signed_in? %>
+                        <li class="humberger-menu"><%= link_to admins_root_path do %>
+                          <i class="fas fa-chevron-circle-left">  管理者トップ</i><% end %>
+                        </li>
+                        <li class="humberger-menu"><%= link_to admins_users_path do %>
+                          <i class="fas fa-user-friends">  会員一覧</i><% end %>
+                        </li>
+                        <li class="humberger-menu"><%= link_to destroy_admin_session_path, method: :delete do %>
+                          <i class="fas fa-unlock">  ログアウト</i><% end %>
+                        </li>
                       <% else %>
-
                         <li class="humberger-menu"><%= link_to about_path do %>
                           <i class="far fa-question-circle">  いえぽけ？</i><% end %>
                         </li>
