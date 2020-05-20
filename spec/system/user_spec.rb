@@ -33,7 +33,6 @@ describe 'ユーザー認証のテスト' do
 			visit new_user_session_path
 		end
 		context 'ログイン' do
-			#let(:test_user) { user }
 			it 'ログインに成功する' do
 				fill_in 'user[email]', with: user.email
 		 		fill_in 'user[password]', with: user.password
