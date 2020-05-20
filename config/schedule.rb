@@ -7,10 +7,11 @@
 env :PATH, ENV['PATH'] # 絶対パスから相対パス指定
 set :output, 'log/cron.log' # ログファイルの出力先
 # "/path/to/my/cron_log.log"
-set :environment, :development # ジョブの実行環境の指定
+#set :environment, :development # ジョブの実行環境の指定
+set :environment, :production
 
-every 1.days, at: '8:00 am' do
-#every 1.minute do
+#every 1.days, at: '8:00 am' do
+every 1.minute do
 # every 2.hours do
 #   command "/usr/bin/some_great_command"
 #   runner "MyModel.some_method"
