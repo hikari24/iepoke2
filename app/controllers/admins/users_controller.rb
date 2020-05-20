@@ -11,6 +11,5 @@ class Admins::UsersController < ApplicationController
 private
 	def user_params
 		params.require(:user).permit(:name, :email, :status)
-	
-
+	end
 end
