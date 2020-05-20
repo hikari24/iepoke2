@@ -2,4 +2,6 @@
 	<%= link_to admins_users_path do%>
 	会員一覧
 	<% end %>
+	<%= link_to destroy_admin_session_path, method: :delete do %>
+                          <i class="fas fa-unlock">  ログアウト</i><% end %>
 </div>
