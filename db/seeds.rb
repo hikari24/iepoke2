@@ -10,7 +10,6 @@ Admin.create!(
    email: 'iepoke@admin.com',
    password: '123456'
 )
-
 # Category.create(
 # 	user_id: 1,
 # 	name: "肉類"
