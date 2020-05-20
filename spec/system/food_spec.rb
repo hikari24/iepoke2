@@ -3,7 +3,7 @@ require 'rails_helper'
 describe '食材のテスト' do
 	let!(:user) { create(:user) }
   let!(:category) { create(:category, user_id: user.id) }
-	let!(:food) { create(:food, user_id: user.id, category_id: category.id) }
+	#let!(:food) { create(:food, user_id: user.id, category_id: category.id) }
 	before do
 	visit new_user_session_path
 	fill_in 'user[email]', with: user.email
@@ -20,11 +20,12 @@ describe '食材のテスト' do
   #visit new_food_path
   end
     describe '登録のテスト' do
+      let(:food) { create(:food, user_id: user.id, category_id: category.id) }
         it '登録フォームが表示される' do
   		    expect(page).to have_content '食材登録'
   	    end
         it '登録に成功する' do
-          select "肉類", match: :first, from: "food_category_id"
+          select "肉類", from: "food_category_id"
           #find("option[value=肉類]").select_option
           fill_in 'food[name]', with: '豚肉'
           fill_in 'food[quantity]', with: '200グラム'
@@ -40,6 +41,7 @@ describe '食材のテスト' do
         end	
     end
     describe '編集のテスト' do
+      let!(:food) { create(:food, user_id: user.id, category_id: category.id) }
         it '編集画面に遷移する' do
           visit edit_food_path(food)
           expect(current_path).to eq('/foods/' + food.id.to_s + '/edit')
@@ -58,6 +60,7 @@ describe '食材のテスト' do
     end
 
     describe '表示のテスト' do
+      let!(:food) { create(:food, user_id: user.id, category_id: category.id) }
         it '食材一覧が表示される' do
           visit foods_path
           expect(page).to have_content '食材一覧'

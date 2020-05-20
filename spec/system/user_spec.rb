@@ -5,38 +5,38 @@ describe 'ユーザー認証のテスト' do
 		context '新規登録' do 
 		 	it '新規登録に成功する' do
 		 		visit new_user_registration_path
-		 		fill_in 'user[name]', with: "iepoke"
-		 		fill_in 'user[email]', with: "iepoke@email.com"
+		 		fill_in 'user[name]', with: Faker::Internet.username
+		 		fill_in 'user[email]', with: Faker::Internet.email
 		 		fill_in 'user[password]', with: "password"
 		 		fill_in 'user[password_confirmation]', with: "password"
-
 		 		click_button '新規登録'
+
 		 		expect(current_path).to eq(root_path)
 		 	end
 		 	it '新規登録に失敗する' do
 		 		visit new_user_registration_path
+		 		#全て空欄で入力し新規登録
 		 		fill_in 'user[name]', with: ""
 		 		fill_in 'user[email]', with: ""
 		 		fill_in 'user[password]', with: ""
 		 		fill_in 'user[password_confirmation]', with: ""
-
 		 		click_on '新規登録'
+
 		 		expect(page).to have_content 'エラー'
 
 		 	end
 		 end
 	end
 	describe 'ユーザーログイン' do
+		let!(:user) { create(:user) }
 		before do
 			visit new_user_session_path
 		end
 		context 'ログイン' do
+			#let(:test_user) { user }
 			it 'ログインに成功する' do
-				fill_in 'user[email]', with: "iepoke@email.com"
-		 		fill_in 'user[password]', with: "password"
-		 		#click_button 'ログイン'
-		 		#find('button[type="submit"]').click
-		 		#click_on 'ログイン'
+				fill_in 'user[email]', with: user.email
+		 		fill_in 'user[password]', with: user.password
 		 		click_button 'ログイン'
 
 		 		expect(current_path).to eq(root_path)
