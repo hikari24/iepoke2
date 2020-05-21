@@ -5,11 +5,14 @@
 .main-visual {
 	width: 100%;
 	height: 300px;
-	background-image: image-url(top);
+	background-image: image-url(fruit);
 	background-size: cover;
 	background-position: center;
 }
 
+.main-visual-text {
+	text-align: right;
+}
 .signup-signin {
 	width: 100%;
 	height: 80px;

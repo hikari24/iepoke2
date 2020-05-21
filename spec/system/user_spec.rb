@@ -49,6 +49,13 @@ describe 'ユーザー認証のテスト' do
 			end
 		end
 	end
+	describe '表示の確認' do
+		context 'ハンバーガーメニューの表示' do
+			it '会員メニューが表示される' do
+				expect(page).to have_content ''
+			end
+		end
+	end
 end
 
 describe 'マイページのテスト' do
