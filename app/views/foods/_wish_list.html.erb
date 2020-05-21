@@ -1,5 +1,5 @@
 <% if food.wish_list == false %>
-	<%= link_to foods_wish_list_create_food_path(food), method: :put, remote: true do %><i class="far fa-star" aria-hidden="true" style="color:#ffb22e;"></i><% end %>
+	<%= link_to foods_wish_list_create_food_path(food), method: :put, remote: true do %><i class="far fa-star" aria-hidden="true" style="color:#f0a30a;"></i><% end %>
 <% else %>
-	<%= link_to foods_wish_list_destroy_food_path(food), method: :delete, remote: true do %><i class="fas fa-star" aria-hidden="true" style="color:#ffb22e;"></i><% end %>
+	<%= link_to foods_wish_list_destroy_food_path(food), method: :delete, remote: true do %><i class="fas fa-star" aria-hidden="true" style="color:#f0a30a;"></i><% end %>
 <% end %>
