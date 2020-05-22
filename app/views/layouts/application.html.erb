@@ -26,11 +26,12 @@
                     <ui>
                       <% if user_signed_in? %>
                         <li class="humberger-menu"><%= link_to about_path do %>
-                          <i class="far fa-question-circle">  いえぽけ？</i><% end  %>
+                          <i class="far fa-question-circle"> いえぽけ？</i><% end  %>
                         </li>
                         <li class="humberger-menu"><%= link_to users_path do %>
                           <i class="fas fa-user-circle">  マイページ</i><% end %>
                         </li>
+                        <li class="humberger-menu"><%= link_to wish_lists_path do %><i class="fas fa-shopping-bag">  ほしいものリスト</i><% end %></li>
                         <li class="humberger-menu"><%= link_to destroy_user_session_path, method: :delete do %>
                           <i class="fas fa-unlock">  ログアウト</i><% end %>
                         </li class="humberger-menu">

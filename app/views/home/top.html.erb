@@ -1,8 +1,11 @@
 <div class="main-visual">
-	<p class="main-visual-text">家にある食材を<br>
-		スマホで<br>
-		かんたんに<br>
+        <p class="main-visual-top"></p>
+    	<p class="main-visual-text">家にある食材を<br>
+		スマホで、かんたんに<br>
 		管理しよう！</p>
+        <p class="main-visual-bottom"></p>
+    </div>
+   
 </div>
 
 <hr>
@@ -18,7 +21,7 @@
 
 <hr>
 
-        <div class="three-button">
+        <div class="top-button">
         	<div class="new-button row">
         		<%= link_to new_food_path do %>
         		<button class="btn btn-default col-xs-offset-3 col-xs-6"><i class="fas fa-plus"></i>    食材を登録する</button>
@@ -33,7 +36,7 @@
 
         	<div class="wish_list-button row">
 	        	<%= link_to wish_lists_path do %>
-    	    	<button class="btn btn-default col-xs-offset-3 col-xs-6"><i class="fas fa-star"></i><i class="fas fa-shopping-bag"></i>  ほしいものリスト</button>
+    	    	<button class="btn btn-default col-xs-offset-3 col-xs-6"><i class="fas fa-shopping-bag"></i>  ほしいものリスト</button>
         		<% end %>
         	</div>
 

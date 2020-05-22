@@ -17,6 +17,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+}
+
 h2 {
   font-size: 20px;
 }
@@ -26,7 +30,7 @@ h2 {
 }
 
 header {
-	max-width: 500px;
+	max-width: 480px;
 	heigth: 150px;
 	background-color: #fff;
 	margin: 0 auto;
@@ -39,7 +43,7 @@ header {
   top: 5px;
 }
 
-/*チェックボックス等は非表示に*/
+/*チェックボックスは非表示*/
 .nav-unshown {
   display:none;
 }
@@ -51,7 +55,7 @@ header {
   height: 20px;
 }
 
-/*ハンバーガーの形をCSSで表現*/
+/*ハンバーガーメニュー*/
 #nav-open span, #nav-open span:before, #nav-open span:after {
   position: absolute;
   height: 3px;/*線の太さ*/
@@ -93,6 +97,7 @@ header {
   max-width: 330px;
   height: 100%;
   background: #fff;
+  color: #a3d6cc;
   transition: .3s ease-in-out; //ゆっくりイン、アウト
   transform: translateX(-120%); //左側に隠しておく
 }
@@ -128,13 +133,14 @@ background-image: image-url(logo);
 background-size: 90px 55px;
 }
 
-.humberger-menu { //ハンバーガーメニューの中身
+/*はンバーガーメニュー の中身*/
+.humberger-menu { 
 	list-style: none;
 	padding: 20px;
 }
 
 .container {
-	max-width: 500px;
+	max-width: 480px;
 	margin: 0 auto;
 	padding: 20px 20px;
 	background-color: #fff;
@@ -143,8 +149,8 @@ background-size: 90px 55px;
 }
 
 .btn-warning {
-  background: #fa6800;
-  border: 1px solid #fa6800;
+  background: #ed6d46;
+  border: 1px solid #ed6d46;
 }
 
 .btn-danger {
@@ -152,8 +158,11 @@ background-size: 90px 55px;
 	border: 1px solid #f0a30a; //アウトラインのみのボタンの線の色
 }
 
+.btn-default {
+}
+
 hr {
-    border: 0.5px solid #f0a30a;
+    border: 0.5px solid #fdd35c;
     display: block;
     margin-top: 15px;
 }
@@ -180,7 +189,7 @@ hr {
 }
 
 footer {
-	max-width: 500px;
+	max-width: 480px;
 	height: 50px;
 	background: #fff;
 	margin: 0 auto;
@@ -190,4 +199,5 @@ footer {
 .footer {
 	text-align: center;
 	line-height: 50px;
+  font-family: 'Menlo',sans-serif;
 }
