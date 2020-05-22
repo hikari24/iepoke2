@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 	def show
 		@user = current_user
+		@foods = Food.where(user_id: current_user.id)
 	end
 
 	def edit
