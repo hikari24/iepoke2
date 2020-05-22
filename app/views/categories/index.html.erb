@@ -20,7 +20,6 @@
 						<th>カテゴリー</th>
 						<th></th>
 						<th></th>
-						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -33,14 +32,12 @@
 							</td>
 							<td><%= link_to category, method: :delete, "data-confirm" => "カテゴリーを削除すると関連する食材も削除されます。削除してもよろしいですか？" do %><button class="btn btn-default">削除</button><% end %>
 							</td>
-							<td></td>
-							<td></td>
 						</tr>
 					<% end %>
 				</tbody>
 			</table>
 		</div>
-
+		<div class="col-xs-12">
 			<%=link_to new_food_path do %>
 			<button class="btn btn-default">食材登録</button>
 			<% end %>
@@ -48,4 +45,5 @@
 			<%=link_to foods_path do %>
 			<button class="btn btn-default">食材一覧</button>
 			<% end %>
+		</div>
 </div>

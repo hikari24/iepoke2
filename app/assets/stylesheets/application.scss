@@ -17,6 +17,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+}
+
 h2 {
   font-size: 20px;
 }
@@ -195,4 +199,5 @@ footer {
 .footer {
 	text-align: center;
 	line-height: 50px;
+  font-family: 'Menlo',sans-serif;
 }

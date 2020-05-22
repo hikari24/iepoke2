@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .main-visual {
 	width: 100%;
 	height: 300px;
@@ -10,9 +11,26 @@
 	background-position: center;
 }
 
-.main-visual-text {
-	text-align: right;
+.main-visual-top,
+.main-visual-bottom {
+	width: 100%;
+	height: 75px;
+	background-color:rgba(255,255,255,0);
 }
+
+.main-visual-text {
+	width: 100%;
+	height:150px;
+	background-color:rgba(255,255,255,0.7);
+	font-size: 25px;
+	color: #626063;
+	text-align: left;
+	line-height: 1.5;
+	border-radius: 10% / 50%;
+	font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
+	padding: 20px 0 0 20px;
+}
+
 .signup-signin {
 	width: 100%;
 	height: 80px;
@@ -32,14 +50,59 @@
   margin-bottom: 20px;
 }
 
+.about-visual {
+	width: 100%;
+	height: 60px;
+	background-image: image-url(line);
+	background-size: 100% 60px;
+	margin-bottom: 10px;
+}
+
+.about-visual2 {
+	width: 100%;
+	height: 60px;
+	background-image: image-url(line2);
+	background-size: 100% 60px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
 .about1,
 .about3 {
 	background-color: #ff7f50;
 	color: white;
+	padding: 10px;
+	box-shadow: 0 0 3px 0 rgba(0,0,0,.12), 0 2px 3px 0 rgba(0,0,0,.22);
+	transition: .3s;
 }
 
-.about1,
+.about1:hover,
+.about3:hover {
+	box-shadow: 0 15px 30px -5px rgba(0,0,0,.15), 0 0 5px rgba(0,0,0,.1);
+	transform: translateY(-4px);
+}
+
 .about2,
-.about3 {
-	padding: 10px;	
+.about4 {
+	padding: 10px;
+	box-shadow: 0 0 3px 0 rgba(0,0,0,.12), 0 2px 3px 0 rgba(0,0,0,.22);
+	transition: .3s;
+}
+
+.about4 {
+	margin-top: 20px;
+}
+
+.about:link,
+.about:visitec,
+.about:hover,
+.about:active {
+	color: #626063;
+	
+}
+
+.about2:hover,
+.about4:hover {
+	box-shadow: 0 15px 30px -5px rgba(0,0,0,.15), 0 0 5px rgba(0,0,0,.1);
+	transform: translateY(-4px);	
 }
