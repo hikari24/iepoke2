@@ -2,15 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .user-signin,
 .user-signup {
 	margin: 40px 0;
 }
 
-.edit-quit-button {
-	margin-left: 50%;
+//show.html.erb
+
+.user-calendar {
+	margin-top: 50px;
 }
 
+.calendar-text {
+	margin-left: 30px;
+}
+
+//registration/edit.html.erb
 .user-edit-message {
 	margin: 10% 0 10% 3%;
 }
@@ -19,11 +27,18 @@
 	margin-left: 3%;
 }
 
+//thank.html.erb
+//quit.html.erb
 .text-quit,
 .text-thank {
   text-align: center;
   margin-bottom: 30px;
+}
 
-}.btn-quit {
+.btn-quit {
   margin-left: 30%;
+}
+
+.calendar-heading {
+	
 }
