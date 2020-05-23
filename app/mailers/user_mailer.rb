@@ -5,10 +5,17 @@ class UserMailer < ApplicationMailer
     mail(from: 'iepoke.dwc@gmail.com', to: user.email, subject: '会員登録完了のお知らせ')
   end
 
-  def expiry_date_foods
-  	@food = user.food
+  default to: -> { User.pluck(:email) }, from: 'iepoke.dwc@gmail.com'
 
-  	default to: -> { User.pluck(:email) } #pluckでUserのemailを全て取得
-  	mail(from: 'iepoke.dwc@gmail.com', to: user.email, subject: '本日までの消費期限の食材についてお知らせ')
+  def expiry_date_foods
+    @url = 'http://iepoke.work'
+    #@user = user
+  	#@foods = user.foods
+    #@foods = food.where(expiry_date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+
+    #pluckでUserのemailを全て取得
+  	#default to: -> { User.pluck(:email) }, from: 'iepoke.dwc@gmail.com'
+
+  	mail(subject: '本日までの消費期限の食材についてお知らせ')
   end
 end

@@ -4,8 +4,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-      <p><%= @user.name %>様</p>
-      <p>本日までの消費期限の食材が、件あります。</p>
+      <p><%#= @user.name %>様</p>
+
+      <p>本日までの消費期限の食材が、<%#= @foods.count %>件あります。</p>
+
       <p><%= link_to 'リンク',foods_url(expiry_date: Date.today) %>から詳細を確認できます。</p>
+      <p><%= @url %></p>
+
   </body>
 </html>
