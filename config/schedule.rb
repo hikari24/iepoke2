@@ -9,9 +9,10 @@ set :output, 'log/cron.log' # ログファイルの出力先
 # "/path/to/my/cron_log.log"
 #set :environment, :development # ジョブの実行環境の指定
 set :environment, :production
+#ENV.each { |k, v| env(k, v) }
 
-#every 1.days, at: '8:00 am' do
-every 15.minute do
+every 1.days, at: '8:00 am' do
+#every 1.minute do
 # every 2.hours do
 #   command "/usr/bin/some_great_command"
 #   runner "MyModel.some_method"
