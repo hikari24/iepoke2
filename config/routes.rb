@@ -34,7 +34,7 @@ namespace :admins do
 end
 
 if Rails.env.development?
-  mount LetterOpenerWeb::Engine, at: '/letter_opener'
+  #mount LetterOpenerWeb::Engine, at: '/letter_opener'
 end
 
 end
