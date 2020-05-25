@@ -15,7 +15,7 @@ class CategoriesController < ApplicationController
 	def index
 		@category = Category.new
 		@user = current_user.id
-		@categories = Category.where(user_id: current_user.id)
+		@categories = Category.where(user_id: current_user.id).page(params[:page])
 	end
 
 	def edit
