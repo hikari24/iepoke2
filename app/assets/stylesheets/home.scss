@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//top.html.erb
 
 .main-visual {
 	width: 100%;
@@ -15,7 +16,6 @@
 .main-visual-bottom {
 	width: 100%;
 	height: 75px;
-	background-color:rgba(255,255,255,0);
 }
 
 .main-visual-text {
@@ -26,8 +26,6 @@
 	color: #626063;
 	text-align: left;
 	line-height: 1.5;
-	border-radius: 10% / 50%;
-	font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN',sans-serif;
 	padding: 20px 0 0 20px;
 }
 
@@ -39,16 +37,21 @@
 
 .top-button {
 	width: 100%;
-	height: 240px;
-	padding-top:20px;
+	height: 300px;
 	background-color: #fff;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
+.about-button,
 .new-button,
 .index-button,
-.wish_list-button {
+.wish_list-button,
+.expiry_date-button {
   margin-bottom: 20px;
 }
+
+//about.html.erb
 
 .about-visual {
 	width: 100%;
@@ -77,6 +80,8 @@
 }
 
 .about1:hover,
+.about2:hover, 
+.about3:hover,
 .about3:hover {
 	box-shadow: 0 15px 30px -5px rgba(0,0,0,.15), 0 0 5px rgba(0,0,0,.1);
 	transform: translateY(-4px);
@@ -93,16 +98,18 @@
 	margin-top: 20px;
 }
 
+.about1:hover,
+.about2:hover, 
+.about3:hover,
+.about3:hover {
+	box-shadow: 0 15px 30px -5px rgba(0,0,0,.15), 0 0 5px rgba(0,0,0,.1);
+	transform: translateY(-4px);
+}
+
 .about:link,
 .about:visitec,
 .about:hover,
 .about:active {
 	color: #626063;
 	
-}
-
-.about2:hover,
-.about4:hover {
-	box-shadow: 0 15px 30px -5px rgba(0,0,0,.15), 0 0 5px rgba(0,0,0,.1);
-	transform: translateY(-4px);	
 }

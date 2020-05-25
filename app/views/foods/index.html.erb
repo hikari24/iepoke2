@@ -17,10 +17,14 @@
 			<%= f.select :sorts, { '消費期限が近い順': 'expiry_date asc', '消費期限が遠い順': 'expiry_date desc', '購入日順が近い順': 'purchase_date desc', '購入日順が遠い順': 'purchase_date asc'}, {:include_blank => '選択しない', selected: params[:q][:sorts]}, {class: "form-control col-xs-3", style: "display: inline-block; width: 35%;"} %>
 		</div>
 		<div class="actions">
-			<button class="btn btn-warning col-xs-offset-1 col-xs-2", type="submit">検索</button>
+			<button class="btn btn-warning col-xs-offset-1 col-xs-2", type="submit">検索</button><br>
 		</div>
 
 	<% end %>
+
+	<br>
+
+	<p><i class="fas fa-exclamation-circle"></i>&nbsp;消費期限が過ぎている食材です。</p>
 
 	<div class="index-table col-xs-12">
 		<table class="table">
@@ -38,7 +42,12 @@
 					<tr>
 						<td><%= food.category.name %></td>
 						<td><%= link_to food_path(food) do%><%= food.name %><% end %></td>
+						<% if food.expiry_date < Date.today %>
+						<td class="over", style="color: #ed6d46;"><%= food.expiry_date.strftime("%Y/%m/%d") %>&nbsp;<i class="fas fa-exclamation-circle"></i></td>
+						<% else %>
 						<td><%= food.expiry_date.strftime("%Y/%m/%d") %></td>
+						<% end %>
+
 						<td id="wish_list_btn-<%= food.id %>"><%= render 'foods/wish_list', food: food %></td>
 					</tr>
 				<% end %>

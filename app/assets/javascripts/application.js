@@ -15,3 +15,9 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery
+
+//ほしいものリスト画面のリロードボタン 
+var reload =document.getElementById('reload')|| document.createElement('input');
+reload.addEventListener('click',function(){
+  window.location.reload(true);
+});
