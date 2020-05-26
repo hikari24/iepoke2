@@ -16,7 +16,7 @@ class UserMailer < ApplicationMailer
     end
   end
 
-  def expiry_date_foods(user,food)
+  def expiry_date_foods(user)
     #users = User.all
     @url = 'http://iepoke.work'
     @user = user
