@@ -20,6 +20,6 @@ every 1.minutes do
 # Learn more: http://github.com/javan/whenever
 
 # Rails内のメソッド実行
-  runner "UserMailer.expiry_date_foods.deliver"
-  #runner "UserMailer.expiry_date_mail"
+  #runner "UserMailer.expiry_date_foods.deliver"
+  runner "UserMailer.expiry_date_mail"
 end
