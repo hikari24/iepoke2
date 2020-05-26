@@ -11,8 +11,8 @@ set :output, 'log/cron.log' # ログファイルの出力先
 set :environment, :production
 #ENV.each { |k, v| env(k, v) }
 
-every 1.days, at: '8:00 am' do
-#every 1.minutes do
+#every 1.days, at: '8:00 am' do
+every 15.minutes do
 # every 2.hours do
 #   command "/usr/bin/some_great_command"
 #   runner "MyModel.some_method"
@@ -26,6 +26,6 @@ every 1.days, at: '8:00 am' do
 # Learn more: http://github.com/javan/whenever
 
 # Rails内のメソッド実行
-  runner "UserMailer.expiry_date_foods.deliver"
-  #runner "User.cron_test_create"
+  #runner "UserMailer.expiry_date_foods.deliver"
+  runner "UserMailer.expiry_date_mail"
 end
