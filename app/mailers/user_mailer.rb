@@ -12,12 +12,12 @@ class UserMailer < ApplicationMailer
   # def expiry_date_mail
   #   @users = User.all
   #   @users.each do |user|
-  #     UserMailer.expiry_date_foods(user).deliver_v
+  #     UserMailer.expiry_date_foods(user).deliver_now
   #   end
   # end
 
   def expiry_date_foods
-    #users = User.all
+    users = User.all
     @url = 'http://iepoke.work'
     #@user = user
   	#@foods = user.foods

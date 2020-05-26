@@ -10,7 +10,7 @@ set :output, 'log/cron.log' # ログファイルの出力先
 #set :environment, :development # ジョブの実行環境の指定
 set :environment, :production
 #every 1.days, at: '8:00 am' do
-every 15.minutes do
+every 1.minutes do
 # every 2.hours do
 #   command "/usr/bin/some_great_command"
 #   runner "MyModel.some_method"
