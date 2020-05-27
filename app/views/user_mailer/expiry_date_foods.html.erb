@@ -4,11 +4,11 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-      <p><%= @user.name %></p>
+      <p><%= @user.name %>様</p>
+      <p>いえぽけをご利用いただきありがとうございます。</p>
 
-      <p>本日までの消費期限の食材が、<%#= @foods.count %>件あります。</p>
+      <p>本日までの消費期限の食材が&nbsp;<%= @foods.count %>&nbsp;件あります。</p>
       <p>下記リンクからログインの上、詳細を確認できます。</p>
       <p><%= @url %></p>
-
   </body>
 </html>
