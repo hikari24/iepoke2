@@ -24,7 +24,7 @@
     <div class="user-calendar">
     	<h4><i class="far fa-calendar-alt"></i>&nbsp;&nbsp;カレンダー</h4>
     	<p class="calendar-text">カレンダー内の&nbsp;<i class="fas fa-apple-alt", style="color:#ed6d46;"></i>&nbsp;をクリックすると<br>
-    		その日までの消費期限の食材が確認できます。</p>
+    		食材の詳細が確認できます。</p>
 
     		<%= month_calendar(attribute: :expiry_date, events: @foods) do |date, foods| %>
 				<%= date.day %>
