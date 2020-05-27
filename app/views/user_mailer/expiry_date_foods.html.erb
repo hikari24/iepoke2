@@ -10,5 +10,6 @@
       <p>本日までの消費期限の食材が&nbsp;<%= @foods.count %>&nbsp;件あります。</p>
       <p>下記リンクからログインの上、詳細を確認できます。</p>
       <p><%= @url %></p>
+      <%= link_to foods_url(expiry_date: Date.today) do %>リンク<% end %>
   </body>
 </html>
