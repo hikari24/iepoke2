@@ -10,8 +10,8 @@ set :output, 'log/cron.log' # ログファイルの出力先
 #set :environment, :development # ジョブの実行環境の指定
 set :environment, :production
 #every 1.days, at: '8:00 am' do
-every 5.minutes do
-#every 6.hours do
+#every 5.minutes do
+every 6.hours do
 #   command "/usr/bin/some_great_command"
 #   runner "MyModel.some_method"
 #   rake "some:great:rake:task"
