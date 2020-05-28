@@ -12,7 +12,7 @@ root to: 'home#top'
 get "/about" => "home#about"
 
 resource :users, only: [:show, :edit, :update]
- get "/users/password" => "users#edit"
+ #get "/users/password" => "users#edit"
  get "/users/quit" => "users#quit"
  put "/users/hide" => "users#hide", as: 'users_hide'
  get "/users/thank" => "users#thank", as: 'users_thank'
@@ -30,11 +30,7 @@ resources :categories, only: [:new, :create, :index, :edit, :update, :destroy]
 #管理者側
 namespace :admins do
 	root to: "home#top"
-	resources :users, only: [:index, :show, :edit, :update]
-end
-
-if Rails.env.development?
-  #mount LetterOpenerWeb::Engine, at: '/letter_opener'
+	resources :users, only: [:index, :show]
 end
 
 end
