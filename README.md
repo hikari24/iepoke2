@@ -19,14 +19,23 @@
 
 ### 主な利用シーン
 ・出先で家にある食材を確認することができる<br>
-（食材の登録時にカテゴリー、食材名、数量、消費期限を登録、カテゴリー別、消費期限順などで検索も可能）
+（カテゴリー、食材名、数量、購入日、消費期限を登録、カテゴリー別、消費期限順などで検索が可能）<br>
 ・食材の賞味期限を管理することができる<br>
-（１日１回、消費期限が近い食材についてメールが送信される。）
-・ほしいものリストを確認することで買い忘れを防止できる。
+（１日１回、消費期限が近い食材についてメールで通知。）<br>
+・ほしいものリストを確認することで買い忘れを防止できる
 
 ## 設計書
 
+### 設計書
+・ER図
+https://drive.google.com/file/d/1a_aoQ32XCA-88QBOq-JWHDdzG-2cHQ85/view?usp=sharing
+・ワイヤーフレーム
+https://drive.google.com/file/d/1ul-inLdR1_G_87h3i2O_9QmOWRtxlas3/view?usp=sharing
+
 
 ### 機能一覧
+・機能一覧
 https://docs.google.com/spreadsheets/d/1qjddjAS2-5rhN3k-ZBpSgbiM51E2v9IpExrwJ6Z6r60/edit?usp=sharing
+・詳細設計
+https://docs.google.com/spreadsheets/d/1NPiG7bn5ARISTQAdVzPytgu0vPG_QieB9kkvJBmuYB0/edit?usp=sharing
 

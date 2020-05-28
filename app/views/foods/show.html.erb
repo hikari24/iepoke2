@@ -3,67 +3,65 @@
 
 	<hr>
 
-		<table class="table">
-			<tr>
-				<th class="col-xs-2">カテゴリー</td>
-				<td class="col-xs-3"><%= @food.category.name %></td>
-			</tr>
-			<tr>
-				<th>食材名</th>
-				<td><%= @food.name %></td>
-			</tr>
-			<tr>
-				<th>数量</th>
-				<td><%= @food.quantity %></td>
-			</tr>
-			<tr>
-				<th>購入日</th>
-				<td><%= @food.purchase_date.strftime("%Y/%m/%d") %></td>
-			</tr>
-			<tr>
-				<th>賞味期限</th>
-				<td><%= @food.expiry_date.strftime("%Y/%m/%d") %></td>
-			</tr>
-			<tr>
-				<th>ほしいものリスト</th>
-				<td id="wish_list_btn-<%= @food.id %>">
-					<%= render 'wish_list', food: @food %>
-				</td>
-			</tr>
-		</table>
+	<table class="table">
+		<tr>	
+			<th class="col-xs-2">カテゴリー</td>
+			<td class="col-xs-3"><%= @food.category.name %></td>
+		</tr>
+		<tr>
+			<th>食材名</th>
+			<td><%= @food.name %></td>
+		</tr>
+		<tr>
+			<th>数量</th>
+			<td><%= @food.quantity %></td>
+		</tr>
+		<tr>
+			<th>購入日</th>
+			<td><%= @food.purchase_date.strftime("%Y/%m/%d") %></td>
+		</tr>
+		<tr>
+			<th>賞味期限</th>
+			<td><%= @food.expiry_date.strftime("%Y/%m/%d") %></td>
+		</tr>
+		<tr>
+			<th>ほしいものリスト</th>
+			<td id="wish_list_btn-<%= @food.id %>">
+				<%= render 'wish_list', food: @food %>
+			</td>
+		</tr>
+	</table>
 
-		<hr>
+	<hr>
 
-		<% if @food.image.present? %>
-			<div class="link-button col-xs-6">
-				<div class="row">
-					<%= link_to @food, method: :delete, "data-confirm" => "使い切った食材は食材の一覧から削除されます。削除してもよろしいですか？" do %><button class="btn btn-default col-xs-offset-1 col-xs-6"><i class="fas fa-utensils"></i>&nbsp;&nbsp;使い切った</button><% end %>
-				</div>
-				<div class="row">
-					<%= link_to edit_food_path(@food) do %><button class="btn btn-default col-xs-offset-1 col-xs-6"><i class="fas fa-pencil-alt"></i>&nbsp;&nbsp;編集</button><% end %>
-				</div>
-				<div class="row">
-					<%= link_to foods_path do %><button class="btn btn-default col-xs-offset-1 col-xs-6"><i class="fas fa-angle-double-left"></i>&nbsp;&nbsp;一覧</button><% end %>
-				</div>
-				<div class="row">
-					<%= link_to new_food_path(@food) do %><button class="btn btn-default col-xs-offset-1 col-xs-6"><i class="fas fa-plus"></i>&nbsp;&nbsp;登録</button><% end %>
-				</div>
+	<% if @food.image.present? %>
+		<div class="col-xs-6">
+			<div class="row">
+				<%= link_to @food, method: :delete, "data-confirm" => "使い切った食材は食材の一覧から削除されます。削除してもよろしいですか？" do %><button class="btn btn-default col-xs-offset-1 col-xs-6"><i class="fas fa-utensils"></i>&nbsp;&nbsp;使い切った</button><% end %>
 			</div>
-			<div class="col-xs-6">
-            	<%= attachment_image_tag @food, :image, :fill, 200, 150, format: 'jpeg' %>
-        	</div>
-        </div>
-        <% else %>
-        	<div class="link-button col-xs-12">
-				<div class="row">
-					<%= link_to @food, method: :delete, "data-confirm" => "使い切った食材は食材の一覧から削除されます。削除してもよろしいですか？" do %><button class="btn btn-default col-xs-offset-1 col-xs-4"><i class="fas fa-utensils"></i>&nbsp;&nbsp;使い切った</button><% end %>
-					<%= link_to edit_food_path(@food) do %><button class="btn btn-default col-xs-offset-2 col-xs-4"><i class="fas fa-pencil-alt"></i>&nbsp;&nbsp;編集</button><% end %>
-				</div>
-				<div class="row", style="margin-bottom: 20px;">
-					<%= link_to foods_path do %><button class="btn btn-default col-xs-offset-1 col-xs-4"><i class="fas fa-list-ul"></i>&nbsp;&nbsp;一覧</button><% end %>
-					<%= link_to new_food_path(@food) do %><button class="btn btn-default col-xs-offset-2 col-xs-4"><i class="fas fa-plus"></i>&nbsp;&nbsp;登録</button><% end %>
-				</div>
+			<div class="row">
+				<%= link_to edit_food_path(@food) do %><button class="btn btn-default col-xs-offset-1 col-xs-6"><i class="fas fa-pencil-alt"></i>&nbsp;&nbsp;編集</button><% end %>
 			</div>
-
-        <% end %>	
+			<div class="row">
+				<%= link_to foods_path do %><button class="btn btn-default col-xs-offset-1 col-xs-6"><i class="fas fa-angle-double-left"></i>&nbsp;&nbsp;一覧</button><% end %>
+			</div>
+			<div class="row">
+				<%= link_to new_food_path(@food) do %><button class="btn btn-default col-xs-offset-1 col-xs-6"><i class="fas fa-plus"></i>&nbsp;&nbsp;登録</button><% end %>
+			</div>
+		</div>
+		<div class="col-xs-6">
+           	<%= attachment_image_tag @food, :image, :fill, 200, 150, format: 'jpeg' %>
+       	</div>
+    <% else %>
+        <div class="col-xs-12">
+			<div class="row">
+				<%= link_to @food, method: :delete, "data-confirm" => "使い切った食材は食材の一覧から削除されます。削除してもよろしいですか？" do %><button class="btn btn-default col-xs-offset-1 col-xs-4"><i class="fas fa-utensils"></i>&nbsp;&nbsp;使い切った</button><% end %>
+				<%= link_to edit_food_path(@food) do %><button class="btn btn-default col-xs-offset-2 col-xs-4"><i class="fas fa-pencil-alt"></i>&nbsp;&nbsp;編集</button><% end %>
+			</div>
+			<div class="row", style="margin-bottom: 20px;">
+				<%= link_to foods_path do %><button class="btn btn-default col-xs-offset-1 col-xs-4"><i class="fas fa-list-ul"></i>&nbsp;&nbsp;一覧</button><% end %>
+				<%= link_to new_food_path(@food) do %><button class="btn btn-default col-xs-offset-2 col-xs-4"><i class="fas fa-plus"></i>&nbsp;&nbsp;登録</button><% end %>
+			</div>
+		</div>
+    <% end %>	
 </div>

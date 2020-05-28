@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'カテゴリーのテスト' do
-	let(:user) { create(:user) }
+	let!(:user) { create(:user) }
 	let!(:category) { create(:category) }
 	#let!(:food) { create(:food) }
 	before do

@@ -3,10 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 //food.new.html
-.food-new {
-	margin-bottom: 20px;
-}
-
 .line {
 	width: 100%;
 	height: 15px;
@@ -15,16 +11,19 @@
 	margin: 10px 0;
 }
 
-.category-form {
-	margin-bottom: 10px;
+//index.html.erb
+.expiry_date_notice {
+	margin: 20px 0 0 20px;
+}
+.wish_list_notice {
+	margin: 0 0 0 20px;
 }
 
-//index.html.erb
 .index-table {
 	margin-top: 20px;
 }
 
-
+//edit.html.erb
 .food-image {
 	margin: 20px 0;
 }

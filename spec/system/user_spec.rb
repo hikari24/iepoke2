@@ -50,9 +50,20 @@ describe 'ユーザー認証のテスト' do
 		end
 	end
 	describe '表示の確認' do
+		let!(:user) { create(:user) }
+		before do
+			visit new_user_session_path
+		end
 		context 'ハンバーガーメニューの表示' do
 			it '会員メニューが表示される' do
-				expect(page).to have_content ''
+				fill_in 'user[email]', with: user.email
+		 		fill_in 'user[password]', with: user.password
+		 		click_button 'ログイン'
+		 		visit root_path
+
+				expect(page).to have_content 'マイページ'
+				expect(page).to have_content 'ほしいものリスト'
+				expect(page).to have_content 'ログアウト'
 			end
 		end
 	end
