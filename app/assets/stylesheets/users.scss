@@ -2,13 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//registration/new.html.erb
+//session/new.html.erb
 .user-signin,
-.user-signup {
-	margin: 40px 0;
+.user-signup,
+.forget-password,
+.signup-btn {
+	margin-bottom: 40px;
 }
 
-//show.html.erb
+.forget-password {
+	margin-top: 20px;
+	text-align: center;
+}
 
+
+//show.html.erb
 .user-calendar {
 	margin-top: 50px;
 }
@@ -23,7 +32,7 @@
 }
 
 .back-link {
-	margin-left: 3%;
+	
 }
 
 //thank.html.erb
@@ -36,10 +45,4 @@
 
 .btn-quit {
   margin-left: 30%;
-}
-
-//session/new.html.erb
-.forget-password {
-	margin-top: 20px;
-	text-align: center;
 }

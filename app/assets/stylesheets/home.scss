@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 //top.html.erb
-
 .main-visual {
 	width: 100%;
 	height: 300px;
@@ -40,7 +39,6 @@
 	height: 300px;
 	background-color: #fff;
 	padding-top: 20px;
-	padding-bottom: 20px;
 }
 
 .about-button,
@@ -52,24 +50,6 @@
 }
 
 //about.html.erb
-
-.about-visual {
-	width: 100%;
-	height: 60px;
-	background-image: image-url(line);
-	background-size: 100% 60px;
-	margin-bottom: 10px;
-}
-
-.about-visual2 {
-	width: 100%;
-	height: 60px;
-	background-image: image-url(line2);
-	background-size: 100% 60px;
-	margin-bottom: 10px;
-	margin-top: 10px;
-}
-
 .about1,
 .about3 {
 	background-color: #ff7f50;
@@ -77,14 +57,6 @@
 	padding: 10px;
 	box-shadow: 0 0 3px 0 rgba(0,0,0,.12), 0 2px 3px 0 rgba(0,0,0,.22);
 	transition: .3s;
-}
-
-.about1:hover,
-.about2:hover, 
-.about3:hover,
-.about3:hover {
-	box-shadow: 0 15px 30px -5px rgba(0,0,0,.15), 0 0 5px rgba(0,0,0,.1);
-	transform: translateY(-4px);
 }
 
 .about2,
@@ -104,12 +76,4 @@
 .about4:hover {
 	box-shadow: 0 15px 30px -5px rgba(0,0,0,.15), 0 0 5px rgba(0,0,0,.1);
 	transform: translateY(-4px);
-}
-
-.about:link,
-.about:visitec,
-.about:hover,
-.about:active {
-	color: #626063;
-	
 }

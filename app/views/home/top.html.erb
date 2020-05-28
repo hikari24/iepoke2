@@ -1,11 +1,9 @@
 <div class="main-visual">
-        <p class="main-visual-top"></p>
-    	<p class="main-visual-text">家にある食材を<br>
+    <p class="main-visual-top"></p>
+    <p class="main-visual-text">家にある食材を<br>
 		スマホで、かんたんに<br>
 		管理しよう！</p>
-        <p class="main-visual-bottom"></p>
-    </div>
-   
+    <p class="main-visual-bottom"></p>
 </div>
 
 <hr>
@@ -21,34 +19,34 @@
 
 <hr>
 
-        <div class="top-button">
-            <div class="about-button row">
-                <%= link_to about_path do %>
-                <button class="btn btn-default col-xs-offset-3 col-xs-6"><i class="fas fa-home"></i>&nbsp;いえぽけについて</button>
-                <% end %>
-            </div>
+<div class="top-button">
+    <div class="about-button row">
+        <%= link_to about_path do %>
+            <button class="btn btn-default col-xs-offset-3 col-xs-6"><i class="fas fa-home"></i>&nbsp;いえぽけについて</button>
+        <% end %>
+    </div>
 
-        	<div class="new-button row">
-        		<%= link_to new_food_path do %>
-        		<button class="btn btn-default col-xs-offset-3 col-xs-6"><i class="fas fa-plus"></i>&nbsp;&nbsp;&nbsp;&nbsp;食材を登録する</button>
-	        	<% end %>
-    	    </div>
+    <div class="new-button row">
+        <%= link_to new_food_path do %>
+            <button class="btn btn-default col-xs-offset-3 col-xs-6"><i class="fas fa-plus"></i>&nbsp;&nbsp;&nbsp;&nbsp;食材を登録する</button>
+	    <% end %>
+    </div>
 
-    	    <div class="index-button row">
-	        	<%= link_to foods_path do %>
-    	    	<button class="btn btn-default col-xs-offset-3 col-xs-6"><i class="fas fa-carrot"></i>&nbsp;&nbsp;&nbsp;&nbsp;食材を確認する</button>
-        		<% end %>
-        	</div>
+    <div class="index-button row">
+	   	<%= link_to foods_path do %>
+    	    <button class="btn btn-default col-xs-offset-3 col-xs-6"><i class="fas fa-carrot"></i>&nbsp;&nbsp;&nbsp;&nbsp;食材を確認する</button>
+        <% end %>
+    </div>
 
-        	<div class="wish_list-button row">
-	        	<%= link_to wish_lists_path do %>
-    	    	<button class="btn btn-default col-xs-offset-3 col-xs-6"><i class="fas fa-shopping-bag"></i>&nbsp;ほしいものリスト</button>
-        		<% end %>
-        	</div>
+    <div class="wish_list-button row">
+	    <%= link_to wish_lists_path do %>
+    	    <button class="btn btn-default col-xs-offset-3 col-xs-6"><i class="fas fa-shopping-bag"></i>&nbsp;ほしいものリスト</button>
+        <% end %>
+    </div>
 
-            <div class="expiry_date-button row">
-                <%= link_to foods_path(expiry_date: Date.today) do %>
-                <button class="btn btn-default col-xs-offset-3 col-xs-6"><i class="far fa-bell"></i>  本日までの消費期限の食材</button>
-                <% end %>
-            </div>
-        </div>
+    <div class="expiry_date-button row">
+        <%= link_to foods_path(expiry_date: Date.today) do %>
+            <button class="btn btn-default col-xs-offset-3 col-xs-6"><i class="far fa-bell"></i>  本日までの消費期限の食材</button>
+        <% end %>
+    </div>
+</div>
