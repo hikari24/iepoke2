@@ -19,9 +19,9 @@
 ## 機能一覧
 
 #### 会員機能
-・新規登録
-・ログイン、ログアウト
-・登録内容の編集
+・新規登録<br>
+・ログイン、ログアウト<br>
+・登録内容の編集<br>
 ・退会
 
 #### 食材登録機能
@@ -52,6 +52,8 @@ https://docs.google.com/spreadsheets/d/1qjddjAS2-5rhN3k-ZBpSgbiM51E2v9IpExrwJ6Z6
 https://docs.google.com/spreadsheets/d/1NPiG7bn5ARISTQAdVzPytgu0vPG_QieB9kkvJBmuYB0/edit?usp=sharing
 
 ## 動作確認
+
+メールアドレス：test@iepoke.com, パスワード：123456
 
 テストユーザーを作成しております。
 動作確認時にご利用ください。
