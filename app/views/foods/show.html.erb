@@ -22,7 +22,11 @@
 		</tr>
 		<tr>
 			<th>賞味期限</th>
-			<td><%= @food.expiry_date.strftime("%Y/%m/%d") %></td>
+				<% if @food.expiry_date < Date.today %>
+					<td class="over", style="color: #ed6d46;"><%= @food.expiry_date.strftime("%Y/%m/%d") %><br>&nbsp;<i class="fas fa-exclamation-circle">消費期限が過ぎています</i></td>
+				<% else %>
+					<td><%= @food.expiry_date.strftime("%Y/%m/%d") %></td>
+				<% end %>
 		</tr>
 		<tr>
 			<th>ほしいものリスト</th>
