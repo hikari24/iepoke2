@@ -22,7 +22,6 @@ class FoodsController < ApplicationController
 		else
 		render :new
 		end
-
 	end
 
 	def show
@@ -31,24 +30,22 @@ class FoodsController < ApplicationController
 
 	def index
 		if params[:category_id] #カテゴリー一覧から飛んできたとき
-		params[:q] = { sorts: 'id desc' } #検索フォーム以外からアクセスした時は降順で表示
+		params[:q] = { sorts: 'id asc' } #検索フォーム以外からアクセスした時は昇順で表示
 		@one_foods = Food.where(category_id: params[:category_id])
 		@foods = @one_foods.all.page(params[:page])
 		elsif params[:q] #検索フォームで検索したとき
 		@q = Food.ransack(params[:q])
   		@search_foods = @q.result
   		@foods = @search_foods.where(user_id: current_user.id).page(params[:page])
-  		elsif params[:expiry_date]
-  		params[:q] = { sorts: 'id desc' }
+  		elsif params[:expiry_date] #本日までの消費期限食材リンクから飛んできたとき
+  		params[:q] = { sorts: 'id acs' }
   		food = Food.where(user_id: current_user.id)
-		#@foods = food.where(expiry_date: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).page(params[:page])
 		@foods = food.where(expiry_date: [100.days.ago..Time.now]).page(params[:page])#当日までの消費期限の食材を出す
 		else
-		params[:q] = { sorts: 'id desc' }
+		params[:q] = { sorts: 'id asc' }
 		@foods = Food.where(user_id: current_user.id).page(params[:page])
 		end
 	end
-
 
 	def edit
 		@food = Food.find(params[:id])
@@ -74,8 +71,7 @@ class FoodsController < ApplicationController
 
 	def wish_list
 		food = Food.where(wish_list: true)
-		@foods = food.where(user_id: current_user.id)
-
+		@foods = food.where(user_id: current_user.id).page(params[:page]).per(15)
 	end
 
 	def wish_list_create
@@ -99,7 +95,6 @@ class FoodsController < ApplicationController
 		@food = Food.find(params[:id])
 		redirect_to foods_path unless @food.user == current_user
 	end
-
 
 	def search_params
     	params.require(:q).permit(:sorts, :category_id)

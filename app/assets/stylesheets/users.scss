@@ -16,10 +16,13 @@
 	text-align: center;
 }
 
-
 //show.html.erb
+.edit-quit-button {
+	margin-bottom: 40px;
+}
+
 .user-calendar {
-	margin-top: 50px;
+	margin-top: 20px;
 }
 
 .calendar-text {
@@ -40,5 +43,5 @@
 }
 
 .btn-quit {
-  margin-left: 30%;
+  margin-left: 25%;
 }

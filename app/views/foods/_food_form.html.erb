@@ -1,23 +1,38 @@
-<div class="form-group">
-	<%= f.label :食材名, class: "col-xs-4" %>
-	<%= f.text_field :name, class: "form-control", style: "display: inline-block; width: 38%;"  %>
-</div>		
-<div class="form-group" %>
-	<%= f.label :数量, class: "col-xs-4" %>
-	<%= f.text_field :quantity, class: "form-control", style: "display: inline-block; width: 38%;" %>
-</div>
-<div class="form-group">
-	<%= f.label :購入日, class: "col-xs-4" %>
-	<%= f.date_field :purchase_date, value: Time.now.strftime("%Y-%m-%d"), class: "form-control", style: "display: inline-block; width: 38%;" %>
-</div>
-<div class="form-group">
-	<%= f.label :消費期限, class: "col-xs-4" %>
-	<%= f.date_field :expiry_date, value: Time.now.strftime("%Y-%m-%d"), class: "form-control" , style: "display: inline-block; width: 38%;"%>
-</div>
-<div class="form-group">
-    <%=f.label :image, '画像選択', class: "btn btn-default col-xs-offset-4", style: "width: 38%;" %>
-  	<%= f.attachment_field :image, style: 'display: none;' %>
-</div>
-<div class="action col-xs-offset-5">
-	<button class="btn btn-warning col-xs-4", type="submit">登録</button>
-</div>
+<%= form_with model: @food, local: true do |f| %>
+
+	<div class="form-group">
+		<%= f.label :カテゴリー, class: "col-xs-4" %>
+		<%= f.collection_select :category_id, Category.where(user_id: current_user.id), :id, :name, {prompt: "選択してください"}, {class: "form-control", style: "display: inline-block; width: 38%;"} %>
+		<%= link_to categories_path do %>
+			<button class="btn btn-default col-xs-offset-1" type="submit"><i class="fas fa-plus"></i>  追加</button><% end %><br>
+	</div>
+	<div class="form-group">
+		<%= f.label :食材名, class: "col-xs-4" %>
+		<%= f.text_field :name, class: "form-control", style: "display: inline-block; width: 38%;"  %>
+	</div>		
+	<div class="form-group" %>
+		<%= f.label :数量, class: "col-xs-4" %>
+		<%= f.text_field :quantity, class: "form-control", style: "display: inline-block; width: 38%;" %>
+	</div>
+	<div class="form-group">
+		<%= f.label :購入日, class: "col-xs-4" %>
+		<%= f.date_field :purchase_date, value: Time.now.strftime("%Y-%m-%d"), class: "form-control", style: "display: inline-block; width: 38%;" %>
+	</div>
+	<div class="form-group">
+		<%= f.label :消費期限, class: "col-xs-4" %>
+		<%= f.date_field :expiry_date, value: Time.now.strftime("%Y-%m-%d"), class: "form-control" , style: "display: inline-block; width: 38%;"%>
+	</div>
+	<div class="form-group">
+        <%=f.label :image, '画像選択', class: "btn btn-default col-xs-offset-4", style: "width: 38%;" %>
+        <%= f.attachment_field :image, style: 'display: none;' %>
+	</div>
+
+	<% if @food.image.present? %>
+	<%= attachment_image_tag @food, :image, :fill, 200, 150, format: 'jpeg', class:"col-xs-offset-4" %>
+	<% end %>
+
+	<div class="action col-xs-offset-5", style="margin-top: 20px;">
+		<button class="btn btn-warning col-xs-4", type="submit">保存</button>
+	</div>
+	
+<% end %>

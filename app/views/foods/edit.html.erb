@@ -4,37 +4,6 @@
 	<hr>
 
 	<%= render "layouts/error_messages" %>
-
-	<%= form_with model: @food, local: true do |f| %>
-
-		<div class="form-group">
-			<%= f.label :カテゴリー, class: "col-xs-4" %>
-			<%= f.collection_select :category_id, Category.where(user_id: current_user.id), :id, :name, {prompt: "選択してください"}, {class: "form-control", style: "display: inline-block; width: 38%;"} %>
-		</div>
-		<%# render "foods/food_form", food: @food %>
-		<div class="form-group">
-			<%= f.label :食材名, class: "col-xs-4" %>
-			<%= f.text_field :name, class: "form-control", style: "display: inline-block; width: 38%;"  %>
-		</div>
-		<div class="form-group" %>
-			<%= f.label :数量, class: "col-xs-4" %>
-			<%= f.text_field :quantity, class: "form-control", style: "display: inline-block; width: 38%;" %>
-		</div>
-		<div class="form-group">				
-			<%= f.label :購入日, class: "col-xs-4" %>
-			<%= f.date_field :purchase_date, class: "form-control", style: "display: inline-block; width: 38%;" %>
-		</div>
-		<div class="form-group">
-			<%= f.label :消費期限, class: "col-xs-4" %>
-			<%= f.date_field :expiry_date, class: "form-control" , style: "display: inline-block; width: 38%;"%>
-		</div>
-		<div class="form-group">
-        	<%=f.label :image, '画像選択', class: "btn btn-default col-xs-offset-4 col-xs-5", style: "width: 38%;" %>
-        	<%= f.attachment_field :image, style: 'display: none;' %>
-        	<%= attachment_image_tag @food, :image, :fill, 200, 150, format: 'jpeg', class: "food-image col-xs-offset-4" %>
-		</div>
-		<div class="action col-xs-offset-5">
-			<button class="btn btn-warning col-xs-4", type="submit">保存</button>
-		</div>
-	<% end %>
+	
+	<%= render "foods/food_form", food: @food %>
 </div>
