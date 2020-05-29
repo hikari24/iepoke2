@@ -53,7 +53,7 @@ https://docs.google.com/spreadsheets/d/1NPiG7bn5ARISTQAdVzPytgu0vPG_QieB9kkvJBmu
 
 ## 動作確認
 
-メールアドレス：test@iepoke.com, パスワード：123456
+`メールアドレス：test@iepoke.com, パスワード：123456`
 
 テストユーザーを作成しております。
 動作確認時にご利用ください。
