@@ -40,7 +40,8 @@ class FoodsController < ApplicationController
   		elsif params[:expiry_date] #本日までの消費期限食材リンクから飛んできたとき
   		params[:q] = { sorts: 'id acs' }
   		food = Food.where(user_id: current_user.id)
-		@foods = food.where(expiry_date: [100.days.ago..Time.now]).page(params[:page])#当日までの消費期限の食材を出す
+		#@foods = food.where(expiry_date: [100.days.ago..Time.now]).page(params[:page])#当日までの消費期限の食材を出す
+		@foods = food.where(expiry_date: [100.days.ago..Date.today]).page(params[:page])#当日までの消費期限の食材を出す
 		else
 		params[:q] = { sorts: 'id asc' }
 		@foods = Food.where(user_id: current_user.id).page(params[:page])

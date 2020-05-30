@@ -20,7 +20,7 @@ class UserMailer < ApplicationMailer
     @user = user
     @url = 'http://iepoke.work'
   	food = Food.where(user_id:user.id)
-    @foods = food.where(expiry_date: [100.days.ago..Time.now])
+    @foods = food.where(expiry_date: [100.days.ago..Date.today])
 
     mail(to: user.email, subject: '本日までの消費期限の食材についてお知らせ')
   end
