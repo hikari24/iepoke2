@@ -34,6 +34,10 @@
 				<%= render 'wish_list', food: @food %>
 			</td>
 		</tr>
+		<tr>
+			<th>登録日（更新日）</th>
+			<th><%= @food.updated_at.strftime("%Y/%m/%d") %></th>
+		</tr>
 	</table>
 
 	<hr style="margin: 40px 0;">
